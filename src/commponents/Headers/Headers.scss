@@ -1,0 +1,315 @@
+a{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    color:#000;
+  }
+.Headers{
+    width: 100%;
+    margin: 0 auto;
+    height: 90px;
+    display: flex;
+    border-bottom: 1px solid #f2f2f2;
+    position: relative;
+    h1{
+        position: absolute;
+        left:0;
+        top:20px;
+    }
+    .head-list{
+        height: 100%;
+        display: flex;
+        position: absolute;
+        left: 198px;
+        top: 0;
+        p{
+            a{
+                display: block;
+                padding: 0 20px;
+                line-height: 90px;
+                height: 90px;
+                text-align: center;
+                font-size: 18px;
+            }
+            
+        }
+    }
+    .head-input{
+        width: 220px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.8s;
+        right: 380px;
+        border: 1px solid #c9c9c9;
+        line-height: 36px;
+        height: 36px;
+        border-radius: 3px;
+        background-color: #fff;
+        padding: 0 33px 0 11px;
+        display: flex;
+        &:hover i {
+            color:#31c27c;
+        }
+        input{
+            width: 178px;
+            flex:1;
+            width: 80%;
+            height: 36px;
+            border: 0 none;
+            font-size: 14px;
+            background: 0 0;
+            outline:medium;
+        }
+        i{
+            position: absolute;
+            top: 25%;
+            right: 11px;
+            transform: translateY(-50%);
+            font-size: 20px;
+            font-weight: 600;
+            width: 16px;
+            height: 16px;
+            background-position: 0 -40px;
+        }
+    }
+    .head-opt{
+        position: absolute;
+        top: 0;
+        right: 10px;
+        height: 90px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        p{
+            width: 50px;
+            font-size: 20px;
+            height: 90px;
+            line-height: 90px;
+            span{
+                font-size: 18px;
+                color: #000;
+                line-height: 110px;
+                &:hover{
+                    color:#31c27c;
+                }
+            }
+            a{
+                height: 90px;
+                line-height: 90px;
+                position: relative;
+                .person{
+                    width: 38px;
+                    height: 38px;
+                    border-radius: 50%;
+                    margin: 34px 0; 
+                }
+                .loginqq{
+                    position: absolute;
+                    width: 14px;
+                    height: 14px;
+                    bottom: -10px;
+                    right: -2px;
+                }
+            }
+        }
+        h4{
+            width: 111px;
+            height: 38px;
+            margin:0 20px 4px 20px; 
+            line-height: 38px;
+            text-align: center;
+            border-radius: 2px;
+            font-size: 14px;
+            border: 1px solid #31c27c;
+            background-color: #31c27c;
+            color: #fff;
+            &:hover{
+                background-color: #1dad68;
+            }
+        }
+        h5{
+            border: 1px solid #c9c9c9;
+            color: #000;
+            padding: 0 9px;
+            height: 38px;
+            border-radius: 2px;
+            line-height: 38px;
+            font-size: 14px;
+            &:hover{
+                background-color: #f1f1f1;
+            }
+        }
+    }
+}
+@media (max-width: 1100px) {
+    .Headers{
+      width: 1100px;
+      height: 90px;
+      display: flex;
+    }
+}
+@media (max-width: 1279px) {
+    .Headers{
+        .head-input{
+            width: 0px;
+            transition: all 0.8s;
+            right: 334px;
+            &:hover{
+                width: 220px;
+                transition: all 0.8s;
+            }
+        }
+        i{
+            margin-right:6px; 
+        }
+    }
+    
+}
+.active{
+    background-color: #31c27c;
+    color: #fff !important;
+
+}
+.head-list{
+    p{
+        a:hover{
+            color:#31c27c !important;
+        }
+    }
+}
+.menu{
+    width: 288px;
+    position: relative;
+    top:37.5px;
+    border-left: 1px solid #f2f2f2;
+    border-bottom: 1px solid #f2f2f2;
+    .ant-menu-vertical{
+        .ant-menu-item-active,.ant-menu-item-selected{
+            color: #31c27c;
+        }
+        .ant-menu-item{
+            height: auto;
+            h3{
+                width: 100%;
+                display: flex;
+                height: 109px;
+                padding: 15px 20px 0;
+                overflow: hidden;
+                a{
+                    width: 70px;
+                    margin-right: 10px;
+                    height: 70px;
+                    position: relative;
+                    .person{
+                        width: 70px;
+                        height: 70px;
+                        border-radius: 50%;
+                        transition: all 0.6s;
+                        &:hover{
+                            transform:scale(1.1);
+                            box-shadow: 0 0 1px 2px #31c27c;
+                            transition: all 0.6s;
+                        }
+                    }
+                    .loginqq{
+                        position: absolute;
+                        width: 18px;
+                        height: 18px;
+                        bottom: 0;
+                        right: 2px;
+                    }
+                }
+                p{
+                    display: flex;
+                    flex-direction: column;
+                    span:hover{
+                        color:#31c27c;
+                    }
+                    .imgs2{
+                        margin-bottom:0px; 
+                        transition: all 0.6s;
+                        &:hover{
+                            margin-bottom:10px; 
+                            transition: all 0.6s;
+                        }
+                    }
+                }
+            }
+            .haohua{
+                width: 100%;
+                height: 50px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                p{
+                    display: flex;
+                    flex-direction: column;
+                    b{
+                        font-size: 15px;
+                        color:#000;
+                        &:hover{
+                            color:#31c27c;
+                        }
+                    }
+                    span{
+                        font-size: 12px;
+                        line-height: 0px;
+                        color:#999;
+                    }
+                }
+                h4{
+                    height: 30px;
+                    line-height: 30px;
+                    margin-top:6px;
+                    width: 70px;
+                    padding: 0;
+                    text-align: center;
+                    margin-right: 0;
+                    background: #31c27c;
+                    color:#fff;
+                    &:hover{
+                        background-color: #1dad68;
+                    }
+                }
+            }
+            .denglu{
+                width: 100%;
+                height: 50px;
+                font-size: 15px;
+                color:#000;
+                &:hover{
+                    color:#31c27c;
+                }
+            }
+        }
+    }
+   
+}
+.denglu{
+    h2{
+        width: 100%;
+        text-align: center;
+        line-height: 50px;
+        height: 50px;
+    }
+    .ant-form-item-children{
+        .ant-input-affix-wrapper {
+            height: 50px;
+        }
+    }
+    .login-form-button{
+        width: 100%;
+        height: 40px;
+        line-height: 35px;
+        border: none;
+        font-size: 17px;
+        font-weight: 400;
+        font-family: "Microsoft Yahei","微软雅黑",SimHei,"黑体","Hiragino Sans GB",STHeiTi,sans-serif;
+        color: #fff;
+        cursor: pointer;
+    }
+    
+}
