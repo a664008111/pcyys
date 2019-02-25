@@ -1,6 +1,8 @@
 const URL = {
     /* 推荐轮播 */
     carousel: "https://u.y.qq.com/cgi-bin/musicu.fcg",
+    MVs:'https://c.y.qq.com/mv/fcgi-bin/getmv_by_tag',
+    gequ:'https://c.y.qq.com/qzone/fcg-bin/fcg_ucc_getcdinfo_byids_cp.fcg',//喜欢歌曲
     /* 最新专辑 */
     // newalbum: "https://c.y.qq.com/v8/fcg-bin/album_library",
     newalbum: "https://c.y.qq.com/qzone/fcg-bin/fcg_ucc_getcdinfo_byids_cp.fcg",

@@ -4,7 +4,7 @@
     list-style: none;
     text-decoration: none;
 }
-.Songlistrecommendation{
+.Newsongsfirst{
     width: 100%;
     height: auto;
     background: rgb(247, 247, 247);
@@ -36,7 +36,7 @@
         }
     }
 }
-.swiperbox{
+.swiperboxs{
     width: 100%;
     height: auto;
     position: relative;
@@ -51,17 +51,16 @@
     }
     ol{
     li{
-        width: 90%;
-        overflow: hidden;
+        width: 100%;
+        
         margin: 0 auto;
         #iconfont{
             position: absolute;
-            top:38%;
+            top:46.5%;
             width: 80px;
             height: 108px;
-            left:-100px;
+            left:-200px;
             transition: all 0.5s;
-            background: rgba(0,0,0,.05);
             transform: translateY(-50%);
             cursor: pointer;
             text-align: center;
@@ -72,43 +71,67 @@
         #iconaont{
             position: absolute;
             cursor: pointer;
-            top:38%;
-            right: -100px;
+            top:46.5%;
+            right: -200px;
             width: 80px;
             transition: all 0.5s;
             height: 108px;
-            background: rgba(0,0,0,.05);
             transform: translateY(-50%);
             text-align: center;
             line-height: 108px;
             font-size: 40px;
         }
-    .qqslide{
+    .qqslides{
         width: 100%;
         box-sizing: border-box;
+        .boxete{
+        width: 100%;
         display: flex;
         align-items: center;
-        padding: 20px 0;
+        padding: 20px 80px;
+        flex-wrap: wrap;
         transition: all 0.5s;
+        justify-content: space-around;
+        .h4but{
+            display: flex;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+            i{
+                padding: 0 4px;
+                font-style:normal
+            }
+        }
+        #hct:last-child{
+            i{
+                display: none;
+            }
+        }
         dl{
+            width: 30%;
+            display: flex;
+            align-items: center;
             height: auto;
-            margin: 0 11.5px;
+            border-bottom:1px solid #f2f2f2;
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 1em;
             .coverimg{
-                width: 220px;
-                height: 220px;
+                width: 86px;
+                height: 86px;
                 background: rgba(0,0,0,0);
                 position: absolute;
                 top:0;
                 left:0;
             }
             .coverimgs{
-                width: 70px;
-                height: 70px;
+                width: 49px;
+                height: 49px;
                 background-size: cover;
                 position: absolute;
                 top:50%;
                 left:50%;
-                margin: -35px;
+                margin: -25px;
                 cursor: pointer;
                 transform: scale(0) translateZ(0);
                 transition-property: opacity,transform;
@@ -116,13 +139,14 @@
                 zoom: 1;
             }
             dt{
-                width: 220px;
-                height: 220px;
+                width: 86px;
+                height: 86px;
                 overflow: hidden;
                 position: relative;
+                z-index: 999;
                 img{
-                    width: 220px;
-                    height: 220px;
+                    width: 86px;
+                    height: 86px;
                     transform: scale(1) translateZ(0);
                     transition-property: opacity,transform;
                     transition-duration: .5s;
@@ -136,16 +160,16 @@
                         zoom: 1;
                     }
                     img{
-                        width: 220px;
-                        height: 220px;
+                        width: 86px;
+                        height: 86px;
                         transform: scale(1.1) translateZ(0);
                         transition-property: opacity,transform;
                         transition-duration: .5s;
                         zoom: 1;
                     }
                     .coverimg{
-                        width: 220px;
-                        height: 220px;
+                        width: 86px;
+                        height: 86px;
                         background: rgba(0,0,0,.2);
                         position: absolute;
                         top:0;
@@ -154,11 +178,14 @@
                 }
             }
             dd{
+                position: absolute;
+                padding-left:100px; 
                 p{
-                    width: 220px;
-                    height: 30px;
-                    margin-top: 10px;
                     color:#000;
+                    overflow: hidden;
+                    text-overflow:ellipsis;
+                    white-space: nowrap;
+                    margin-top: 40px;
                     &:hover{
                         color:#31c27c;
                         cursor: pointer;
@@ -167,12 +194,17 @@
                 span{
                     display: block;
                     color:#999;
-                    font-family:poppin,Tahoma,Arial,\5FAE\8F6F\96C5\9ED1,sans-serif;
+                    font-family:Teko-Medium;
                     font-weight:500;
+                    &:hover{
+                        color:#31c27c;
+                        cursor: pointer;
+                    }
                 }
             }
         }
     }
+}
 }
 }
     .swiper-container{

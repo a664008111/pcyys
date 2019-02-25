@@ -1,0 +1,117 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+.RankingList{
+    width: 100%;
+    height: auto;
+    background: rgb(247, 247, 247);
+    h1{
+        font-family:Teko-Medium;
+        font-weight:600;
+        letter-spacing:6px;
+        width: 100%;
+        height: 84px;
+        bottom:0;
+        text-align: center;
+        background-color: rgb(243, 243, 243);
+        padding-top:34px; 
+    }
+}
+.swiperboxsd{
+    width: 100%;    
+    height: auto;
+    ol{
+        width: 100%;   
+        padding: 0 80px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        li{
+            width: 19%;
+            background:rgba(0,0,0,.5); 
+            height: auto;
+            color:#fff;
+            padding: 0 20px;
+            position: relative;
+            .coverimgs{
+                width: 70px;
+                height: 70px;
+                background-size: cover;
+                position: absolute;
+                top:80%;
+                left:50%;
+                margin: -35px;
+                cursor: pointer;
+                transform: scale(0) translateZ(0);
+                transition-property: opacity,transform;
+                transition-duration: .3s;
+                zoom: 1;
+            }
+            &:hover{
+                .coverimgs{
+                    transform: scale(1) translateZ(0);
+                    transition-property: opacity,transform;
+                    transition-duration: .3s;
+                    zoom: 1;
+                }
+            }
+            h3{
+                margin-top:40px; 
+                text-align:center;
+                color:#fff;
+            }
+            h2{
+                text-align:center;
+                color:#fff;
+                font-weight: 600;
+            }
+            #p{
+                width: 50%;
+                margin: 0 auto;
+                text-align: center;
+                position: absolute;
+                top:20%;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 40px;
+            }
+            h4{
+                margin-top: 90px;
+                color:#fff;
+                .iconts{
+                    display: flex;
+                    &:last-child{
+                        .buttrig{
+                            margin-bottom: 80px;
+                        }
+                    }
+                    i{
+                        font-style:normal;
+                        margin: 20px 10px;
+                    }
+                    .buttrig{
+                        display: flex;
+                        flex-direction: column;
+                        margin:20px 0; 
+                        
+                        b{
+                            margin-bottom:10px; 
+                            cursor: pointer;
+                            overflow: hidden;
+                        text-overflow:ellipsis;
+                        }
+                        span{
+                            overflow: hidden;
+                            text-overflow:ellipsis;
+                            cursor: pointer;
+                        }
+                    }
+                }   
+            }
+        }
+    }
+}

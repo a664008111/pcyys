@@ -1,0 +1,112 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+.Wonderfulrecommendation{
+    width: 100%;
+    height: auto;
+    background: rgb(247, 247, 247);
+    h1{
+        font-family:Teko-Medium;
+        font-weight:600;
+        letter-spacing:6px;
+        width: 100%;
+        height: 84px;
+        bottom:0;
+        text-align: center;
+        background-color: rgb(243, 243, 243);
+        padding-top:34px; 
+    }
+    ul{
+        width: 600px;
+        margin: 0 auto;
+        height: 50px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        li{
+            font-size: 15px;
+            color:#000;
+            cursor: pointer;
+        }
+        li.actives{
+            color:#31c27c;
+        }
+    }
+}
+.swiperboxa{
+    width: 100%;
+    height: auto;
+    &:hover{
+        #iconfont{
+            left:0px;
+        }
+        #iconaont{
+            right: 0px;
+        }
+    }
+    ol{
+    li{
+        width: 100%;
+        overflow: hidden;
+        margin: 0 auto;
+        #iconfont{
+            position: absolute;
+            top:50%;
+            width: 80px;
+            height: 108px;
+            left:-200px;
+            transition: all 0.5s;
+            transform: translateY(-50%);
+            cursor: pointer;
+            text-align: center;
+            line-height: 108px;
+            font-size: 40px;
+            z-index: 99999;
+        }
+        #iconaont{
+            position: absolute;
+            cursor: pointer;
+            top:50%;
+            right: -200px;
+            width: 80px;
+            transition: all 0.5s;
+            height: 108px;
+            transform: translateY(-50%);
+            text-align: center;
+            line-height: 108px;
+            font-size: 40px;
+        }
+    .qqslidea{
+        width: 100%;
+        
+        display: flex;
+        align-items: center;
+        
+        transition: all 0.5s;
+        .odds{
+            box-sizing: border-box;
+            padding: 20px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            img{
+                width: 50%;
+                height: 100%;
+            }
+        }
+    }
+}
+}
+    .swiper-container{
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-pagination{
+        position: absolute;
+        bottom: -4px !important;
+        background: rgb(247, 244, 244);
+    }
+}

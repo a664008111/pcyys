@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Headers.scss';
 import QQimg from '../../common/images/logo.png';
-import person from '../../common/images/person_300.png';
 import userimg from '../../common/images/userimg.jpg';
 import login from '../../common/images/login_qq.png';
 import svip_g from '../../common/images/svip_g.png';
@@ -12,7 +11,7 @@ import "../../common/react-iconfont/iconfont.css";
 import {
     Menu, Dropdown, Modal,Form, message,Icon, Input, Button, Checkbox,
   } from 'antd';
-  import 'antd/dist/antd.css';
+import 'antd/dist/antd.css';
 class Headers extends Component {
     constructor(props){
         super(props);
@@ -35,7 +34,7 @@ class Headers extends Component {
         let str = sessionStorage.obj;
         if(str){
             let obj = JSON.parse(str);
-            if(obj.userID == 0){
+            if(obj.userID === 0){
                 message.success("您已登陆！");
                 this.setState({
                     visible: false,
@@ -50,7 +49,7 @@ class Headers extends Component {
             if(str){
                 let obj = JSON.parse(str);
     
-                if(obj.userID == 0){
+                if(obj.userID === 0){
                     message.warning("功能待开发！");
                     
                 }
@@ -80,13 +79,14 @@ class Headers extends Component {
        if(this.state.userN === ''){
         message.error('请输入账号！！！');
        }
-       else if(this.state.password=== ''){
+       else if(this.state.password === ''){
         message.error('请输入密码！！！');
        }else{
         fetch('https://www.easy-mock.com/mock/5b480d3dae45641f63210b3b/example/get#!method=get')
         .then(response=> response.json()).then(data => {
-         if(this.state.userN==data.data.Userlogin.Accountnumber){
-             if(this.state.password ===data.data.Userlogin.Password){
+            console.log(data)
+         if(this.state.userN == data.data.Userlogin.Accountnumber){
+             if(this.state.password === data.data.Userlogin.Password){
                 message.loading('正在登陆,请稍等！', 2)
                 .then(() => {
                     message.success(data.data.Userlogin.mages,2);
@@ -195,7 +195,7 @@ class Headers extends Component {
               <h5 onClick={this.tongyong}>开通付费包</h5>
           </div>
           <div>
-            <Modal title="QQ登录" visible={this.state.visible} onCancel={this.handleCancel} footer>
+            <Modal title="QQ登录" visible={this.state.visible} onCancel={this.handleCancel} footer = {false}>
                 <div className="denglu">
                     <h2>帐号密码登录</h2>
                     <Form  className="login-form">

@@ -40,10 +40,10 @@ class App extends Component {
           <div className="swiper-container sect">
               <div className="swiper-pagination"></div>
                   <div className="swiper-wrapper" ref='slides'>
-                      <div className="swiper-slide"><img src={qqhome1}/></div>
-                      <div className="swiper-slide"><img src={qqhome2}/></div>
-                      <div className="swiper-slide"><img src={qqhome3}/></div>
-                      <div className="swiper-slide qqhome-slide"><img src={qqhome}/>
+                      <div className="swiper-slide"><img src={qqhome1} alt =''/></div>
+                      <div className="swiper-slide"><img src={qqhome2} alt =''/></div>
+                      <div className="swiper-slide"><img src={qqhome3} alt =''/></div>
+                      <div className="swiper-slide qqhome-slide"><img src={qqhome} alt =''/>
                       <span className="bb" onClick={()=>{this.kai()}} style={{position: 'absolute', bottom: '26%', left: "50%", transform: 'translateX(-50%)',borderRadius:'2px', transition: 'all 1s', width: '180px',height:'50px',textAlign: 'center',lineHeight:"50px",color:'#fff',cursor:'pointer'}}>马上开启QQ音乐</span>
                       </div>
                   </div>
