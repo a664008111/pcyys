@@ -9,6 +9,7 @@ import station from './station/station.jsx';
 import radioMV from './radioMV/radioMV.jsx';
 import Digitalalbum from './Digitalalbum/Digitalalbum.jsx';
 import Ticketing from './Ticketing/Ticketing.jsx';
+import Gshou from './singer/geshoubox.jsx';
 import './MusicHall.scss';
 class MusicHall extends Component {
   constructor(props){
@@ -41,6 +42,7 @@ class MusicHall extends Component {
               <Route path="/MusicHall/radioMV" component={radioMV}></Route>
               <Route path="/MusicHall/Digitalalbum" component={Digitalalbum}></Route>
               <Route path="/MusicHall/Ticketing" component={Ticketing}></Route>
+              <Route path="/MusicHall/Gshou/:id" component={Gshou}></Route>
               <Redirect path="/" to={{pathname: '/MusicHall/homepage'}} />
             </Switch>
           </div>

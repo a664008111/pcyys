@@ -125,8 +125,8 @@ class Newsongsfirst extends Component {
                                             return item.singer.length > 1 ? <span id='hct' key={indexs}>{items.name} <i>/</i> </span> : <span key={index}>{items.name}</span>
                                         })}
                                         </h4>
-                                        
                                       </dd>
+                                      <span className='spansy'>{(item.interval / 60) >10 ? (item.interval / 60) : '0' + parseInt(item.interval / 60)} : {(item.interval % 60) > 10 ? (item.interval % 60) : '0' + (item.interval % 60)}</span>
                                     </dl>
                                 }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
                               } 
@@ -145,8 +145,8 @@ class Newsongsfirst extends Component {
                                 return item.singer.length > 1 ? <span id='hct' key={indexs}>{items.name} <i>/</i> </span> : <span key={index}>{items.name}</span>
                             })}
                             </h4>
-                            
                           </dd>
+                          <span className='spansy'>{(item.interval / 60) >10 ? (item.interval / 60) : '0' + parseInt(item.interval / 60)} : {(item.interval % 60) > 10 ? (item.interval % 60) : '0' + (item.interval % 60)}</span>
                         </dl>
                     }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
                   } 
@@ -165,8 +165,8 @@ class Newsongsfirst extends Component {
                                 return item.singer.length > 1 ? <span id='hct' key={indexs}>{items.name} <i>/</i> </span> : <span key={index}>{items.name}</span>
                             })}
                             </h4>
-                            
                           </dd>
+                          <span className='spansy'>{(item.interval / 60) >10 ? (item.interval / 60) : '0' + parseInt(item.interval / 60)} : {(item.interval % 60) > 10 ? (item.interval % 60) : '0' + (item.interval % 60)}</span>
                         </dl>
                     }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
                   } 
@@ -183,8 +183,8 @@ class Newsongsfirst extends Component {
                                 return item.singer.length > 1 ? <span id='hct' key={indexs}>{items.name} <i>/</i> </span> : <span key={index}>{items.name}</span>
                             })}
                             </h4>
-                            
                           </dd>
+                          <span className='spansy'>{(item.interval / 60) >10 ? (item.interval / 60) : '0' + parseInt(item.interval / 60)} : {(item.interval % 60) > 10 ? (item.interval % 60) : '0' + (item.interval % 60)}</span>
                         </dl>
                     }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
                   } 

@@ -45,14 +45,14 @@ class Wonderfulrecommendation extends Component {
             <ol>
               <li>
                 <div className="qqslidea">
-                <div class="swiper-container">
-              <div class="swiper-wrapper">
-                  <div class="swiper-slide odds">{
+                <div className="swiper-container">
+              <div className="swiper-wrapper">
+                  <div className="swiper-slide odds">{
                     listnoe.length > 0 ? listnoe.map((item,index)=>{
                       return <img key= {index} src={item.pic_info.url} alt=""/>
                     }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
                   } </div>
-                  <div class="swiper-slide odds">{
+                  <div className="swiper-slide odds">{
                     listtow.length > 0 ? listtow.map((item,index)=>{
                       return <img key= {index} src={item.pic_info.url} alt=""/>
                     }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>

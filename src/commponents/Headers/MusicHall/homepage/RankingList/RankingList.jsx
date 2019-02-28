@@ -43,7 +43,7 @@ class RankingList extends Component {
                                       <i>{indexs+1}</i>
                                       <div className="buttrig">
                                         <b>{items.track_name}</b>
-                                      <span>{items.singer_name}</span>
+                                        <span>{items.singer_name}</span>
                                       </div>
                                       
                                 </div>

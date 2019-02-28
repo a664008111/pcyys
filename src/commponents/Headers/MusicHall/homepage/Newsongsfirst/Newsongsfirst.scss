@@ -111,6 +111,7 @@
             width: 30%;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             height: auto;
             border-bottom:1px solid #f2f2f2;
             position: relative;
@@ -137,6 +138,9 @@
                 transition-property: opacity,transform;
                 transition-duration: .5s;
                 zoom: 1;
+            }
+            .spansy{
+                margin-top:-50px; 
             }
             dt{
                 width: 86px;
@@ -180,6 +184,8 @@
             dd{
                 position: absolute;
                 padding-left:100px; 
+                overflow: hidden;
+                flex: 1;
                 p{
                     color:#000;
                     overflow: hidden;

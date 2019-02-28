@@ -24,6 +24,23 @@
     width: 100%;    
     height: auto;
     ol{
+        li:nth-child(1){
+            background: url('../../../../../common/images/bg_index_top.jpg') no-repeat 2px 0;
+        }
+        li:nth-child(2){
+            background: url('../../../../../common/images/bg_index_top.jpg') no-repeat -223px 0;
+        }
+        li:nth-child(3){
+            background: url('../../../../../common/images/bg_index_top.jpg') no-repeat -447px 0;
+        }
+        li:nth-child(4){
+            background: url('../../../../../common/images/bg_index_top.jpg') no-repeat -670.5px 0;
+        }
+        li:nth-child(5){
+            background: url('../../../../../common/images/bg_index_top.jpg') no-repeat -895.5px 0;
+        }
+    }
+    ol{
         width: 100%;   
         padding: 0 80px;
         box-sizing: border-box;
@@ -97,16 +114,18 @@
                         display: flex;
                         flex-direction: column;
                         margin:20px 0; 
-                        
+                        overflow: hidden;
                         b{
                             margin-bottom:10px; 
                             cursor: pointer;
                             overflow: hidden;
-                        text-overflow:ellipsis;
+                            text-overflow:ellipsis;
+                            white-space: nowrap;
                         }
                         span{
                             overflow: hidden;
                             text-overflow:ellipsis;
+                            white-space: nowrap;
                             cursor: pointer;
                         }
                     }

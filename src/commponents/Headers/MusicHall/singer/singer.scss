@@ -1,0 +1,172 @@
+.singer{
+    width: 100%;
+    height: 100%;
+    background-color: #fafafa;
+    .singerbox{
+        width: 100%;
+        .shows{
+            width: 100%;
+            height: 376px;
+            text-align: center;
+            background: url('../../../../common/images/bg_singer.jpg') no-repeat center center;
+            position: relative;
+            h3{
+                color:#fff;
+                font-size: 20px;
+                padding: 50px 0;
+            }
+            h4{
+                width: 150px;
+                height: 150px;
+                color:#fff;
+                position: absolute;
+                cursor: pointer;
+                top:34%;
+                left:50%;
+                transform: translateX(-60%);
+                img{
+                    width: 150px;
+                    height: 150px;
+                    margin: 0 14px;
+                }
+                span{
+                    position: absolute;
+                    width: 150px;
+                    height: 150px;
+                    top:50%;
+                    margin: -75px -61px;
+                    transition: all .3s;
+                    background: rgba(0,0,0,.75);
+                    line-height: 150px;
+                    font-size: 18px;
+                    color:#fff;
+                    &:hover{
+                        border:6px solid #31c27c;
+                        transition: all .3s;
+                        background: rgba(0,0,0,.6);
+                    }
+                }
+            }
+        }
+        .hides{
+            width: 100%;
+            height: 376px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            color:#fff;
+            background: url('../../../../common/images/bg_singer.jpg') no-repeat center center;
+            h1{
+                color:#fff;
+                font-size: 50px;
+            }
+            h3{
+                color:#fff;
+                font-size: 30px;
+            }
+            span{
+                padding:  14px 60px;
+                cursor: pointer;
+                border: 1px solid rgb(63, 62, 62);
+                border-radius: 2px;
+                transition: all .3s;
+                font-size: 18px;
+                &:hover{
+                    border: 1px solid #fff;
+                }
+            }
+        }
+    }
+    .fenglie{
+        text-align: center;
+        font-size: 18px;
+        color:#000;
+    }
+    .sousubox{
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0px 80px;
+        padding-top:50px;
+        ul{
+            width: 100%;
+            height: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            li{
+                padding: 0 8px;
+                cursor: pointer;
+                height: 26px;
+                line-height: 27px;
+                margin: 0 8px;
+            }
+            li.active{
+                color:#31c27c
+            }
+        }
+    }
+    .textboxs{
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px 40px;
+        ol{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            li{
+                width: 140px;
+                margin: 0 40px;
+                dl{
+                    width: 100%;
+                    dt{
+                        width: 150px;
+                        height: 150px;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        cursor: pointer;
+                    }
+                    dd{
+                        text-align: center;
+                        margin: 20px 0;
+                        cursor: pointer;
+                        font-size: 16px;
+                        color:#000;
+                        overflow: hidden;
+                        text-overflow:ellipsis;
+                        white-space: nowrap;
+                        &:hover{
+                            color:#31c27c;
+                        }
+                    }
+                }
+            }
+        }
+        ul{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            li{
+                width: 17%;
+                color:#000;
+                text-align: center;
+                cursor: pointer;
+                height: 36px;
+                line-height: 36px;
+                overflow: hidden;
+                text-overflow:ellipsis;
+                white-space: nowrap;
+                &:hover{
+                    color:#31c27c;
+                }
+            }
+        }
+    }
+    .ant-pagination{
+        text-align: center;
+        margin-bottom:50px; 
+    }
+}

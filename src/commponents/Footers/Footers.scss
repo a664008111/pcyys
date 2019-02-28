@@ -1,0 +1,211 @@
+.Footers{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 80px;
+    background-color: #333;
+    .footwrap{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        color: #999;
+        .tersbox{
+            width: 33.3%;
+            h4{
+                color: #999;
+                margin-top: 36px;
+                margin-left: 30px;
+            }
+            ol{
+                width: 100%;
+                height: auto;
+                display: flex;
+                margin: 40px 0;
+                li{
+                    width: 24%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-right:10px;
+                    justify-content: space-between;
+                    cursor: pointer;
+                    b{
+                        display: inline-block;
+                        width: 50px;
+                        height: 48px;
+                        margin: 16px 0;
+                    }
+                }
+                li:nth-child(1){
+                    &:hover {
+                        color:#31c27c;
+                        b{
+                            background: url('../../common/images/footer.png') no-repeat 0px -49px ;
+                        }
+                    }
+                    b{
+                        background: url('../../common/images/footer.png') no-repeat 0 0 ;
+                        
+                    }
+                }
+                li:nth-child(2){
+                    &:hover {
+                        color:#31c27c;
+                        b{
+                            background: url('../../common/images/footer.png') no-repeat -92px -49px ;
+                        }
+                    }
+                    b{
+                        background: url('../../common/images/footer.png') no-repeat -92px 0 ;
+                        
+                    }
+                }
+                li:nth-child(3){
+                    &:hover {
+                        color:#31c27c;
+                        b{
+                            background: url('../../common/images/footer.png') no-repeat -184px -49px ;
+                        }
+                    }
+                    b{
+                        background: url('../../common/images/footer.png') no-repeat -184px 0 ;
+                        
+                    }
+                }
+                li:nth-child(4){
+                    &:hover {
+                        color:#31c27c;
+                        b{
+                            background: url('../../common/images/footer.png') no-repeat -276px -49px ;
+                        }
+                    }
+                    b{
+                        background: url('../../common/images/footer.png') no-repeat -276px 0 ;
+                        
+                    }
+                }
+            }
+        }
+        .tersboxs{
+            width: 33.3%;
+            h4{
+                color: #999;
+                margin-top: 30px;
+                margin-left: 30px;
+            }
+            ol{
+                width: 100%;
+                height: auto;
+                display: flex;
+                margin: 40px 0;
+                flex-wrap: wrap;
+                li{
+                    width: 30%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-right:10px;
+                    justify-content: space-between;
+                    margin: 10px 0;
+                    cursor: pointer;
+                    &:hover {
+                        color:#31c27c;
+                    }
+                    b{
+                        display: inline-block;
+                        width: 50px;
+                        height: 48px;
+                        margin: 16px 0;
+                    }
+                }
+                li:nth-child(1){
+                    &:hover {
+                        b{
+                            background: url('../../common/images/footer.png') no-repeat -368px -49px ;
+                        }
+                    }
+                    b{
+                        background: url('../../common/images/footer.png') no-repeat -368px 0 ;
+                        
+                    }
+                }
+                li:nth-child(2){
+                    &:hover {
+                        b{
+                            background: url('../../common/images/footer.png') no-repeat -460px -49px ;
+                        }
+                    }
+                    b{
+                        background: url('../../common/images/footer.png') no-repeat -460px 0 ;
+                        
+                    }
+                }
+                li:nth-child(3){
+                    &:hover {
+                        b{
+                            background: url('../../common/images/footer.png') no-repeat -552px -49px ;
+                        }
+                    }
+                    b{
+                        background: url('../../common/images/footer.png') no-repeat -552px 0 ;
+                        
+                    }
+                }
+                    
+            }
+        }
+        .tersboxz{
+            width: 33.3%;
+            h4{
+                color: #999;
+                margin-top: 30px;
+            }
+            ol{
+                display: flex;
+                margin-top: 70px;
+                flex-wrap: wrap;
+                li{
+                    width: 33.3%;
+                    margin:  10px 0;
+                    cursor: pointer;
+                    &:hover{
+                        color:#31c27c;
+                    }
+                }
+            }
+        }
+    }
+    .kais{
+        color: #999;
+        width: 100%;
+        
+        h4{
+            color: #999;
+            margin-left:20px; 
+        }
+        p{
+            margin: 40px 0;
+            cursor: pointer;
+            span{
+                padding: 0 20px;
+                &:hover{
+                    color:#31c27c;
+                }
+            }
+        }
+    }
+    
+    .bottombox{
+        width: 100%;
+        color:#999;
+        padding: 40px 0;
+        p{
+            text-align: center;
+            span{
+                cursor: pointer;
+                &:hover{
+                    color:#31c27c;
+                }
+            }
+        }
+    }
+}

@@ -4,6 +4,7 @@ import './MV.scss';
 import cover from '../../../../../common/images/cover_play@2x.png'
 import shuju from '../../../../../common/images/wushuju.png';
 import Swiper from 'swiper/dist/js/swiper.min.js';
+import logins from '../../../../../common/images/loading.gif';
 import 'swiper/dist/css/swiper.min.css'
 import {message} from 'antd';
 class MV extends Component {
@@ -128,7 +129,7 @@ class MV extends Component {
                                 {
                                     listnoe.length > 0 ? listnoe.map((item,index)=>{
                                       return  <dl key={index} className="Tatgbust" mid = {item.id}>
-                                          <dt><img className="coverimg" src={item.picurl} alt=""/><div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></dt>
+                                          <dt><img className="coverimg" src={item.picurl ? item.picurl : logins} alt=""/><div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></dt>
                                           <dd>
                                             <p title={item.mvtitle}>{item.mvtitle}</p>
                                             <b>{item.singer_name}</b>
