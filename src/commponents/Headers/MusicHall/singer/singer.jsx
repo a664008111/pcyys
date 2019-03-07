@@ -4,6 +4,7 @@ import Logings from '../../logings.jsx';
 import {getCarousels,Sousuios,Clousebox} from '../../../../api/singer';
 import { HashRouter as Router, NavLink } from 'react-router-dom';
 import { Pagination } from 'antd';
+import logins from '../../../../common/images/loadings.gif'
 import './singer.scss';
 class singer extends Component {
   constructor(props){
@@ -16,24 +17,32 @@ class singer extends Component {
       countb:0,
       countc:0,
       countd:0,
-      singeraid:0,
-      singerbid:0,
-      singercid:0,
-      singerdid:0,
+      singeraid:-100,
+      singerbid:-100,
+      singercid:-100,
+      singerdid:-100,
       textbox:[],
       total:0,
-      pages:1
+      pages:1,
+      fenleis:'正在加载 , 请稍后...'
     }
     this.zhanghao = this.zhanghao.bind(this);
     this.mima = this.mima.bind(this);
   }
+  // pushHistory(){
+    
+  //   let str = sessionStorage.Gsid;
+  //     let obj = JSON.parse(str);
+  //     console.log(obj)
+  //       this.counta(obj.ida,obj.a)
+  // }
   componentDidMount(){
-    this.counta(0,-100)
-    this.countb(0,-100)
-    this.countc(0,-100)
-    this.countd(0,-100)
-    window.addEventListener('scroll',this.lists(1),true)
     this.lists(1)
+  //   this.pushHistory()
+  //   window.addEventListener("popstate", function(e) {
+  //     console.log("返回")
+  // }, true);
+    
     getCarousels().then(res=>{
       this.setState({
         singers:res.list
@@ -52,7 +61,8 @@ class singer extends Component {
     Clousebox(data).then(res=>{
       this.setState({
         singerlist:res.singerList.data.singerlist,
-        total:res.singerList.data.total / 8
+        total:res.singerList.data.total / 8,
+        fenleis:'该分类下暂无歌手！'
       })
     });
   }
@@ -83,7 +93,6 @@ class singer extends Component {
       this.setState({password:e.target.value})
   }
   lists=(ntj)=>{
-    document.documentElement.scrollTop = 0
     this.setState({
       pages:ntj
     },function(){
@@ -93,6 +102,7 @@ class singer extends Component {
   render() {
     let login=this.props.login
     let {sousubox,singerlist} = this.state;
+  if(JSON.stringify(sousubox) !== "{}"){
     return (
       <div className="singer">
             <div className='singerbox'>
@@ -111,12 +121,12 @@ class singer extends Component {
             </div>
             <div>
             <Logings/>
-        </div>
+            </div>
         <div className='sousubox'>
               <ul>
                  {
                    sousubox.index ? sousubox.index.map((item,index)=>{
-                     return <li key={index} className={index === this.state.counta ? 'active' : null} onClick={()=>this.counta(index,item.id)}>{item.name}</li>
+                     return <li key={index} className={index === this.state.counta  ? 'active' : null} onClick={()=>this.counta(index,item.id)}>{item.name}</li>
                    }) : null
                  }
               </ul>
@@ -184,7 +194,7 @@ class singer extends Component {
               }
             </ul>
             
-          </div> : <div className='fenglie'>该分类下暂无歌手！</div>
+          </div> : <div className='fenglie'>{this.state.fenleis}</div>
         }
         </div>
         </Router>
@@ -194,6 +204,9 @@ class singer extends Component {
         
       </div>
     );
+  }else{
+    return ( <div className='loginsbox'><img src={logins} alt=""/></div> )
+  }
   }
 }
 const mapStateToProps=(state)=>{

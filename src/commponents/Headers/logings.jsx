@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import {Dltobustext} from '../../api/audio';
 import {
    Modal,Form, message,Icon, Input, Button, Checkbox,
 } from 'antd';
@@ -77,6 +78,16 @@ const mapStateToProps=(state)=>{
              .then(response=> response.json()).then(data => {
               if(userN == data.data.Userlogin.Accountnumber){
                   if(password === data.data.Userlogin.Password){
+                    Dltobustext().then(res=>{
+                        console.log(res)
+                        var textname = {
+                             imgs:res.data.creator.headpic,
+                             username:res.data.creator.nick
+                        }
+                        var strs = JSON.stringify(textname);
+                        sessionStorage.textname = strs;
+                    })
+                    
                     var objs = { 
                         userN:data.data.Userlogin.Accountnumber,
                         password:data.data.Userlogin.Password,

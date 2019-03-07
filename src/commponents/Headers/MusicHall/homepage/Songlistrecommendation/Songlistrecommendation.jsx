@@ -3,7 +3,8 @@ import {getCarousel ,getNewAlbum, getCarouselone} from "../../../../../api/Songl
 import './Songlistrecommendation.scss';
 import cover from '../../../../../common/images/cover_play@2x.png'
 import shuju from '../../../../../common/images/wushuju.png';
-import loading from '../../../../../common/images/loading.gif';
+import loading from '../../../../../common/images/loadings.gif';
+import images from '../../../../../common/images/bg_detail.jpg';
 import {message} from 'antd';
 class Songlistrecommendation extends Component {
    constructor(props){
@@ -36,13 +37,15 @@ class Songlistrecommendation extends Component {
       if(index===0){
             getCarousel().then(res=>{
               this.setState({
-                listnoe:res.recomPlaylist.data.v_hot
+                listnoe:res.recomPlaylist.data.v_hot,
+                lat:shuju
               })
           });
       }else{
         getCarouselone().then(res=>{
           this.setState({
-            listnoe:res.playlist.data.v_playlist
+            listnoe:res.playlist.data.v_playlist,
+            lat:shuju
           })
       });
       }
@@ -119,13 +122,13 @@ class Songlistrecommendation extends Component {
                   {
                     listnoe.length > 0 ? listnoe.map((item,index)=>{
                       return  <dl key={index} className="utf8s">
-                          <dt><img className="coverimg" src={item.cover || item.cover_url_big ?item.cover || item.cover_url_big : loading} alt=""/><div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></dt>
+                          <dt>{listnoe ?  <img className="coverimg" onerror="this.src='//y.gtimg.cn/mediastyle/global/img/playlist_300.png?max_age=31536000';this.onerror=null;" src={item.cover || item.cover_url_big ?item.cover || item.cover_url_big : loading} alt=""/> : <img className="coverimg" onerror="this.src='//y.gtimg.cn/mediastyle/global/img/playlist_300.png?max_age=31536000';this.onerror=null;" src={images} alt=""/>}<div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></dt>
                           <dd>
                             <p >{item.title}</p>
                             <span>播放量：{item.listen_num > 10000 || item.access_num > 10000 ? ((item.listen_num / 10000 || item.access_num / 10000).toFixed(1)) + '万' : item.listen_num || item.access_num}</span>
                           </dd>
                         </dl>
-                    }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
+                    }) : <div style={{width:'100%',height:'281px'}}><img src={this.state.lat} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
                   } 
                   </div>
                   <i className="icon iconfont icon-right" id="iconaont" onClick={()=>{this.Right()}}></i>

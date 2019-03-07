@@ -5,6 +5,7 @@ import cover from '../../../../../common/images/cover_play@2x.png'
 import shuju from '../../../../../common/images/wushuju.png';
 import Swiper from 'swiper/dist/js/swiper.min.js';
 import logins from '../../../../../common/images/loading.gif';
+import { HashRouter as Router,NavLink } from 'react-router-dom';
 import 'swiper/dist/css/swiper.min.css'
 import {message} from 'antd';
 class MV extends Component {
@@ -32,72 +33,26 @@ class MV extends Component {
           prevEl: '.swiper-button-prev',
         }
       }); 
-      if(index===0){
-        let data = 'all'
-            getCarousels(data).then(res=>{
-              console.log(res.data.mvlist)
-              this.setState({
-                listnoe:res.data.mvlist.slice(0,10),
-                listtow:res.data.mvlist.slice(10,20),
-                listtrr:res.data.mvlist.slice(20,30),
-                listfour:res.data.mvlist.slice(30,40)
-              })
-          });
-      }else if(index === 1){
-        let data = 'neidi'
-            getCarousels(data).then(res=>{
-              this.setState({
-                listnoe:res.data.mvlist.slice(0,10),
-                listtow:res.data.mvlist.slice(10,20),
-                listtrr:res.data.mvlist.slice(20,30),
-                listfour:res.data.mvlist.slice(30,40)
-              })
-          });
-      }else if(index === 2){
-        let data = 'korea'
-            getCarousels(data).then(res=>{
-              this.setState({
-                listnoe:res.data.mvlist.slice(0,10),
-                listtow:res.data.mvlist.slice(10,20),
-                listtrr:res.data.mvlist.slice(20,30),
-                listfour:res.data.mvlist.slice(30,40)
-              })
-          });
-      }else if(index === 3){
-        let data = 'gangtai'
-            getCarousels(data).then(res=>{
-              this.setState({
-                listnoe:res.data.mvlist.slice(0,10),
-                listtow:res.data.mvlist.slice(10,20),
-                listtrr:res.data.mvlist.slice(20,30),
-                listfour:res.data.mvlist.slice(30,40)
-              })
-          });
-      }else if(index === 4){
-        let data = 'oumei'
-            getCarousels(data).then(res=>{
-              this.setState({
-                listnoe:res.data.mvlist.slice(0,10),
-                listtow:res.data.mvlist.slice(10,20),
-                listtrr:res.data.mvlist.slice(20,30),
-                listfour:res.data.mvlist.slice(30,40)
-              })
-          });
-      }else if(index === 5){
-        let data = 'janpan'
-            getCarousels(data).then(res=>{
-              this.setState({
-                listnoe:res.data.mvlist.slice(0,10),
-                listtow:res.data.mvlist.slice(10,20),
-                listtrr:res.data.mvlist.slice(20,30),
-                listfour:res.data.mvlist.slice(30,40)
-              })
-          });
+      if(index===0){let data = 'all';this.getbox(data);
+      }else if(index === 1){let data = 'neidi';this.getbox(data);
+      }else if(index === 2){let data = 'korea';this.getbox(data);
+      }else if(index === 3){let data = 'gangtai';this.getbox(data);
+      }else if(index === 4){let data = 'oumei';this.getbox(data);
+      }else if(index === 5){let data = 'janpan';this.getbox(data);
       }
-      
       this.setState({
         count:index
       })
+    }
+    getbox(data){
+      getCarousels(data).then(res=>{
+        this.setState({
+          listnoe:res.data.mvlist.slice(0,10),
+          listtow:res.data.mvlist.slice(10,20),
+          listtrr:res.data.mvlist.slice(20,30),
+          listfour:res.data.mvlist.slice(30,40)
+        })
+    });
     }
     imgsone(item,index){
       message.success("正在开发中,请耐心等待... , invalid referer!");
@@ -117,6 +72,7 @@ class MV extends Component {
                 })
               }
             </ul>
+            
             <div className="swiperboxsll">
             <ol>
               <li>
@@ -128,8 +84,9 @@ class MV extends Component {
                             <div className = 'boxetell'>
                                 {
                                     listnoe.length > 0 ? listnoe.map((item,index)=>{
+                                      console.log(item)
                                       return  <dl key={index} className="Tatgbust" mid = {item.id}>
-                                          <dt><img className="coverimg" src={item.picurl ? item.picurl : logins} alt=""/><div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></dt>
+                                          <dt><Router><NavLink to={`/MusicHall/MVbox/${item.singer_mid}`}><img className="coverimg" src={item.picurl ? item.picurl : logins} alt=""/><div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></NavLink></Router></dt>
                                           <dd>
                                             <p title={item.mvtitle}>{item.mvtitle}</p>
                                             <b>{item.singer_name}</b>

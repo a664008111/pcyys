@@ -20,18 +20,23 @@ class Headers extends Component {
         this.state = {
             Links:[{"音乐馆":"/MusicHall"},{"我的音乐":"/Mymusic"},{"客户端":"/Client"},{"音乐号":"/Musicnumber"},{"VIP":"/VIP"}],
             userImg:'',
-            userName:''
+            userName:'',
+            users:{}
         }
         this.zhanghao = this.zhanghao.bind(this);
         this.mima = this.mima.bind(this);
     }
     componentDidMount(){
         let str = sessionStorage.obj;
+        let textname = sessionStorage.textname
+        
               if(str){
+                let users = JSON.parse(textname);
                   let obj = JSON.parse(str);
                   if(obj.userID === 0){
                       this.setState({
-                        userName:obj.userName
+                        userName:obj.userName,
+                        users
                       })
                   }
               }
@@ -51,16 +56,17 @@ class Headers extends Component {
     mima(e){
          this.setState({password:e.target.value})
    }
-    
   render() {
     let login=this.props.login
+    let {users} = this.state;
+    console.log(users)
     const menu = (
         <div className='menu'>
         <Menu>
           <Menu.Item key="1">
              <h3>
-             <a href="#"><img className="person" src={userimg} alt=""/><img className="loginqq" src={login} alt=""/></a>
-             <p><span>{this.state.userName?this.state.userName:"请登录"}</span><b>{VIPlevel?<img className="imgs2" src={VIPlevel} alt=""/>:<img className="imgs" src={svip_g} alt=""/>}<img className="imgs1" src={sui_g} alt=""/></b></p>
+             <Router><NavLink activeClassName='actives' to='/Mymusic' ><img className="person" src={users.imgs} alt=""/><img className="loginqq" src={login} alt=""/></NavLink></Router>
+             <p><span>{this.state.userName?users.username:"请登录"}</span><b>{VIPlevel?<img className="imgs2" src={VIPlevel} alt=""/>:<img className="imgs" src={svip_g} alt=""/>}<img className="imgs1" src={sui_g} alt=""/></b></p>
              </h3>
           </Menu.Item>
           <Menu.Item key="2">
@@ -118,7 +124,7 @@ class Headers extends Component {
               <p>
                 <Dropdown overlay={login.show ? menu : menus} placement='bottomLeft'>
                     {
-                        login.show ? <a className="ant-dropdown-link" href="#"><img className="person" src={userimg} alt=""/><img className="loginqq" src={logins} alt=""/></a> : <span onClick={()=>this.props.dens()} >登录</span>
+                        login.show ? <a className="ant-dropdown-link" href="#/Mymusic"><img className="person" src={users.imgs} alt=""/><img className="loginqq" src={logins} alt=""/></a> : <span onClick={()=>this.props.dens()} >登录</span>
                     }
                 </Dropdown>
               </p>

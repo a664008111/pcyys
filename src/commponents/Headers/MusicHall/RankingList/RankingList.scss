@@ -1,0 +1,52 @@
+.RankingList{
+    width: 100%;
+    padding: 50px 80px;
+    display: flex;
+    .rankleft{
+        width: 150px;
+        border:1px solid #ccc;
+        margin-right:20px; 
+        h3{
+            width: 80%;
+            margin: 0 auto;
+            border-bottom: 1px solid #ccc;
+            height: 65px;
+            line-height: 65px;
+        }
+        ul{
+            margin: 0 20px;
+            li{
+                line-height: 47px;
+                color:#000;
+                cursor: pointer;
+                p{
+                    margin-bottom: 0em;
+                }
+            }
+        }
+    }
+    .rankright{
+        h2{
+            height: 65px;
+            display: flex;
+            line-height: 65px;
+            p{
+                margin: 0 20px;
+                b{
+                    font-size: 14px;
+                    font-weight: 400;
+                }
+            }
+        }
+        .buts{
+            width: 100%;
+            display: flex;
+            span{
+                padding: 10px 20px;
+                border:1px solid #ccc;
+                margin-right: 10px;
+                color:#000;
+            }
+        }
+    }
+}

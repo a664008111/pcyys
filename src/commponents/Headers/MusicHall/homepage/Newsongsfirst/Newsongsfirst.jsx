@@ -33,59 +33,34 @@ class Newsongsfirst extends Component {
       }); 
       if(index===0){
         let data = `{"comm":{"ct":24},"new_song":{"module":"QQMusic.MusichallServer","method":"GetNewSong","param":{"type":1}}}`
-            getCarousels(data).then(res=>{
-              this.setState({
-                listnoe:res.new_song.data.song_list.slice(0,9),
-                listtow:res.new_song.data.song_list.slice(9,18),
-                listtrr:res.new_song.data.song_list.slice(18,27),
-                listfour:res.new_song.data.song_list.slice(27,36)
-              })
-          });
+        this.getbox(data);
       }else if(index === 1){
         let data = `{"comm":{"ct":24},"new_song":{"module":"QQMusic.MusichallServer","method":"GetNewSong","param":{"type":2}}}`
-            getCarousels(data).then(res=>{
-              this.setState({
-                listnoe:res.new_song.data.song_list.slice(0,9),
-                listtow:res.new_song.data.song_list.slice(9,18),
-                listtrr:res.new_song.data.song_list.slice(18,27),
-                listfour:res.new_song.data.song_list.slice(27,36)
-              })
-          });
+        this.getbox(data);
       }else if(index === 2){
         let data = `{"comm":{"ct":24},"new_song":{"module":"QQMusic.MusichallServer","method":"GetNewSong","param":{"type":3}}}`
-            getCarousels(data).then(res=>{
-              this.setState({
-                listnoe:res.new_song.data.song_list.slice(0,9),
-                listtow:res.new_song.data.song_list.slice(9,18),
-                listtrr:res.new_song.data.song_list.slice(18,27),
-                listfour:res.new_song.data.song_list.slice(27,36)
-              })
-          });
+        this.getbox(data);
       }else if(index === 3){
         let data = `{"comm":{"ct":24},"new_song":{"module":"QQMusic.MusichallServer","method":"GetNewSong","param":{"type":4}}}`
-            getCarousels(data).then(res=>{
-              this.setState({
-                listnoe:res.new_song.data.song_list.slice(0,9),
-                listtow:res.new_song.data.song_list.slice(9,18),
-                listtrr:res.new_song.data.song_list.slice(18,27),
-                listfour:res.new_song.data.song_list.slice(27,36)
-              })
-          });
+        this.getbox(data);
       }else if(index === 4){
         let data = `{"comm":{"ct":24},"new_song":{"module":"QQMusic.MusichallServer","method":"GetNewSong","param":{"type":5}}}`
-            getCarousels(data).then(res=>{
-              this.setState({
-                listnoe:res.new_song.data.song_list.slice(0,9),
-                listtow:res.new_song.data.song_list.slice(9,18),
-                listtrr:res.new_song.data.song_list.slice(18,27),
-                listfour:res.new_song.data.song_list.slice(27,36)
-              })
-          });
+        this.getbox(data);
       }
       
       this.setState({
         count:index
       })
+    }
+    getbox(data){
+      getCarousels(data).then(res=>{
+        this.setState({
+          listnoe:res.new_song.data.song_list.slice(0,9),
+          listtow:res.new_song.data.song_list.slice(9,18),
+          listtrr:res.new_song.data.song_list.slice(18,27),
+          listfour:res.new_song.data.song_list.slice(27,36)
+        })
+    });
     }
     imgsone(item,index){
       message.success("正在开发中,请耐心等待... , invalid referer!");

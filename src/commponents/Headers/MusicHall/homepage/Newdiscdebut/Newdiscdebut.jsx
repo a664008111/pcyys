@@ -33,59 +33,34 @@ class Newdiscdebut extends Component {
       }); 
       if(index===0){
         let data = `{"comm":{"ct":24},"new_album":{"module":"music.web_album_library","method":"get_album_by_tags","param":{"area":1,"company":-1,"genre":-1,"type":-1,"year":-1,"sort":2,"get_tags":1,"sin":0,"num":40,"click_albumid":0}}}`
-            getCarousels(data).then(res=>{
-              this.setState({
-                listnoe:res.new_album.data.list.slice(0,10),
-                listtow:res.new_album.data.list.slice(10,20),
-                listtrr:res.new_album.data.list.slice(20,30),
-                listfour:res.new_album.data.list.slice(30,40)
-              })
-          });
+        this.getbox(data)
       }else if(index === 1){
         let data = `{"comm":{"ct":24},"new_album":{"module":"music.web_album_library","method":"get_album_by_tags","param":{"area":0,"company":-1,"genre":-1,"type":-1,"year":-1,"sort":2,"get_tags":1,"sin":0,"num":40,"click_albumid":0}}}`
-            getCarousels(data).then(res=>{
-              this.setState({
-                listnoe:res.new_album.data.list.slice(0,10),
-                listtow:res.new_album.data.list.slice(10,20),
-                listtrr:res.new_album.data.list.slice(20,30),
-                listfour:res.new_album.data.list.slice(30,40)
-              })
-          });
+        this.getbox(data)
       }else if(index === 2){
         let data = `{"comm":{"ct":24},"new_album":{"module":"music.web_album_library","method":"get_album_by_tags","param":{"area":3,"company":-1,"genre":-1,"type":-1,"year":-1,"sort":2,"get_tags":1,"sin":0,"num":40,"click_albumid":0}}}`
-            getCarousels(data).then(res=>{
-              this.setState({
-                listnoe:res.new_album.data.list.slice(0,10),
-                listtow:res.new_album.data.list.slice(10,20),
-                listtrr:res.new_album.data.list.slice(20,30),
-                listfour:res.new_album.data.list.slice(30,40)
-              })
-          });
+        this.getbox(data)
       }else if(index === 3){
         let data = `{"comm":{"ct":24},"new_album":{"module":"music.web_album_library","method":"get_album_by_tags","param":{"area":15,"company":-1,"genre":-1,"type":-1,"year":-1,"sort":2,"get_tags":1,"sin":0,"num":40,"click_albumid":0}}}`
-            getCarousels(data).then(res=>{
-              this.setState({
-                listnoe:res.new_album.data.list.slice(0,10),
-                listtow:res.new_album.data.list.slice(10,20),
-                listtrr:res.new_album.data.list.slice(20,30),
-                listfour:res.new_album.data.list.slice(30,40)
-              })
-          });
+        this.getbox(data)
       }else if(index === 4){
         let data = `{"comm":{"ct":24},"new_album":{"module":"music.web_album_library","method":"get_album_by_tags","param":{"area":14,"company":-1,"genre":-1,"type":-1,"year":-1,"sort":2,"get_tags":1,"sin":0,"num":40,"click_albumid":0}}}`
-            getCarousels(data).then(res=>{
-              this.setState({
-                listnoe:res.new_album.data.list.slice(0,10),
-                listtow:res.new_album.data.list.slice(10,20),
-                listtrr:res.new_album.data.list.slice(20,30),
-                listfour:res.new_album.data.list.slice(30,40)
-              })
-          });
+        this.getbox(data)
       }
       
       this.setState({
         count:index
       })
+    }
+    getbox(data){
+      getCarousels(data).then(res=>{
+        this.setState({
+          listnoe:res.new_album.data.list.slice(0,10),
+          listtow:res.new_album.data.list.slice(10,20),
+          listtrr:res.new_album.data.list.slice(20,30),
+          listfour:res.new_album.data.list.slice(30,40)
+        })
+    });
     }
     imgsone(item,index){
       message.success("正在开发中,请耐心等待... , invalid referer!");

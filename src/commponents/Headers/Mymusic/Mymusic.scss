@@ -1,0 +1,130 @@
+.Mymusic{
+    width: 100%;
+    .denglu{
+        width: 100%;
+        height: 600px;
+        background: url('../../../common/images/bg_profile_unlogin.jpg') no-repeat 0 0;
+        background-size: cover;
+        text-align: center;
+        color:#fff;
+        h1{
+            font-size: 60px;
+            color:#fff;
+            padding-top: 150px;
+        }
+        h2{
+            font-size: 26px;
+            color:#fff;
+        }
+        span{
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 40px;
+            padding: 10px 30px;
+            font-size: 18px;
+            background: #31c27c;
+            border-radius: 4px;
+        }
+    }
+    .usernamesbox{
+        position: relative;
+        width: 100%;
+        .mymutop{
+            width: 100%;
+            height: 380px;
+            background: url('../../../common/images/bg_profile.jpg') no-repeat center center;
+            background-size: cover;
+            dl{
+                margin: 0 auto;
+                padding: 60px 0;
+                width: 100%;
+                text-align: center;
+                dt{
+                    width: 110px;
+                    height: 110px;
+                    border:4px solid #fff;
+                    overflow: hidden;
+                    border-radius: 50%;
+                    margin: 0 auto;
+                    img{
+                        width: 110px;
+                        height: 110px;
+                    }
+                }
+                dd{
+                    padding-top: 6px;
+                    color:#fff;
+                    span{
+                        font-size: 30px;
+                    }
+                    img{
+                        vertical-align: middle;
+                        padding-bottom:20px; 
+                    }
+                }
+                h3{
+                    color:#fff;
+                    display: flex;
+                    span{
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        text-align: center;
+                    }
+                    span:nth-child(1){
+                        border-right: 1px solid #fff;
+                        text-align: right;
+                        padding-right:20px;
+                    }
+                    span:nth-child(2){
+                        text-align: left;
+                        padding-left:20px; 
+                    }
+                }
+            }
+        }
+        .mybot{
+            position: absolute;
+            bottom:-12px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 80px;
+            i.icon{
+                font-size: 26px;
+                height: 50px;
+                color:#fff;
+                &:hover{
+                    color:#31c27c;
+                }
+            }
+            ul{
+                display: flex;
+                color:#fff;
+                height: 50px;
+                line-height: 50px;
+                li{
+                    padding: 0 20px;
+                    font-size: 16px;
+                    cursor: pointer;
+                    &:hover{
+                        color:#31c27c;
+                    }
+                }
+                li.actives{
+                    color:#31c27c;
+                }
+            }
+        }
+    }
+    .mymubottom{
+        width: 100%;
+        padding: 0 100px;
+        font-size: 50px;
+        height: 300px;
+        background: url('../../../common/images/bg_detail.jpg') no-repeat 0 0;
+        text-align: center;
+        line-height: 300px;
+    }
+}
