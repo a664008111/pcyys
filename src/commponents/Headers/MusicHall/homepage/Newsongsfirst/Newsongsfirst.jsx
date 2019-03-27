@@ -31,22 +31,7 @@ class Newsongsfirst extends Component {
           prevEl: '.swiper-button-prev',
         }
       }); 
-      if(index===0){
-        let data = `{"comm":{"ct":24},"new_song":{"module":"QQMusic.MusichallServer","method":"GetNewSong","param":{"type":1}}}`
-        this.getbox(data);
-      }else if(index === 1){
-        let data = `{"comm":{"ct":24},"new_song":{"module":"QQMusic.MusichallServer","method":"GetNewSong","param":{"type":2}}}`
-        this.getbox(data);
-      }else if(index === 2){
-        let data = `{"comm":{"ct":24},"new_song":{"module":"QQMusic.MusichallServer","method":"GetNewSong","param":{"type":3}}}`
-        this.getbox(data);
-      }else if(index === 3){
-        let data = `{"comm":{"ct":24},"new_song":{"module":"QQMusic.MusichallServer","method":"GetNewSong","param":{"type":4}}}`
-        this.getbox(data);
-      }else if(index === 4){
-        let data = `{"comm":{"ct":24},"new_song":{"module":"QQMusic.MusichallServer","method":"GetNewSong","param":{"type":5}}}`
-        this.getbox(data);
-      }
+      if(index===0){this.getbox(1);}else if(index === 1){this.getbox(2);}else if(index === 2){this.getbox(3);}else if(index === 3){this.getbox(4);}else if(index === 4){this.getbox(5);}
       
       this.setState({
         count:index
@@ -70,6 +55,30 @@ class Newsongsfirst extends Component {
     }
   render() {
     let {listnoe,listtow,listtrr,listfour} = this.state;
+    let Newslist = [];
+    Newslist.push(listnoe,listtow,listtrr,listfour)
+    let boxNewslist = Newslist.map((itemx,indexx)=>{
+          return <div key={indexx} className="swiper-slide">
+          <div className = 'boxete'>
+              {
+                  itemx.length > 0 ? itemx.slice(0,9).map((item,index)=>{
+                    return  <dl key={index} className="Tatgbust" mid = {item.id}>
+                        <dt><img className="coverimg" src={`https://y.gtimg.cn/music/photo_new/T002R90x90M000${item.album.mid}.jpg?max_age=2592000`} alt=""/><div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></dt>
+                        <dd>
+                          <p title={item.subtitle || item.title}>{item.subtitle || item.title}</p>
+                          <h4 className='h4but'>
+                            {item.singer.map((items,indexs)=>{
+                              return item.singer.length > 1 ? <span id='hct' key={indexs}>{items.name} <i>/</i> </span> : <span key={index}>{items.name}</span>
+                          })}
+                          </h4>
+                        </dd>
+                        <span className='spansy'>{(item.interval / 60) >10 ? (item.interval / 60) : '0' + parseInt(item.interval / 60)} : {(item.interval % 60) > 10 ? (item.interval % 60) : '0' + (item.interval % 60)}</span>
+                      </dl>
+                  }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
+                } 
+        </div>
+    </div>
+    })
     return (
       <div className="Newsongsfirst">
             <h1>新歌首发</h1>
@@ -87,84 +96,7 @@ class Newsongsfirst extends Component {
                 <div className="swiper-container">
                 <div className="swiper-pagination"></div>
                     <div className="swiper-wrapper">
-                        <div className="swiper-slide">
-                        <div className = 'boxete'>
-                            {
-                                listnoe.length > 0 ? listnoe.slice(0,9).map((item,index)=>{
-                                  return  <dl key={index} className="Tatgbust" mid = {item.id}>
-                                      <dt><img className="coverimg" src={`https://y.gtimg.cn/music/photo_new/T002R90x90M000${item.album.mid}.jpg?max_age=2592000`} alt=""/><div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></dt>
-                                      <dd>
-                                        <p title={item.subtitle || item.title}>{item.subtitle || item.title}</p>
-                                        <h4 className='h4but'>
-                                          {item.singer.map((items,indexs)=>{
-                                            return item.singer.length > 1 ? <span id='hct' key={indexs}>{items.name} <i>/</i> </span> : <span key={index}>{items.name}</span>
-                                        })}
-                                        </h4>
-                                      </dd>
-                                      <span className='spansy'>{(item.interval / 60) >10 ? (item.interval / 60) : '0' + parseInt(item.interval / 60)} : {(item.interval % 60) > 10 ? (item.interval % 60) : '0' + (item.interval % 60)}</span>
-                                    </dl>
-                                }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
-                              } 
-                      </div>
-                  </div>
-                        <div className="swiper-slide">
-                        <div className = 'boxete'>
-                  {
-                    listtow.length > 0 ? listtow.slice(0,9).map((item,index)=>{
-                      return  <dl key={index} className="Tatgbust" mid = {item.id}>
-                          <dt><img className="coverimg" src={`https://y.gtimg.cn/music/photo_new/T002R90x90M000${item.album.mid}.jpg?max_age=2592000`} alt=""/><div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></dt>
-                          <dd>
-                            <p title={item.subtitle || item.title}>{item.subtitle || item.title}</p>
-                            <h4 className='h4but'>
-                              {item.singer.map((items,indexs)=>{
-                                return item.singer.length > 1 ? <span id='hct' key={indexs}>{items.name} <i>/</i> </span> : <span key={index}>{items.name}</span>
-                            })}
-                            </h4>
-                          </dd>
-                          <span className='spansy'>{(item.interval / 60) >10 ? (item.interval / 60) : '0' + parseInt(item.interval / 60)} : {(item.interval % 60) > 10 ? (item.interval % 60) : '0' + (item.interval % 60)}</span>
-                        </dl>
-                    }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
-                  } 
-                  </div>
-                        </div>
-                        <div className="swiper-slide">
-                        <div className = 'boxete'>
-                  {
-                    listtrr.length > 0 ? listtrr.slice(0,9).map((item,index)=>{
-                      return  <dl key={index} className="Tatgbust" mid = {item.id}>
-                          <dt><img className="coverimg" src={`https://y.gtimg.cn/music/photo_new/T002R90x90M000${item.album.mid}.jpg?max_age=2592000`} alt=""/><div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></dt>
-                          <dd>
-                            <p title={item.subtitle || item.title}>{item.subtitle || item.title}</p>
-                            <h4 className='h4but'>
-                              {item.singer.map((items,indexs)=>{
-                                return item.singer.length > 1 ? <span id='hct' key={indexs}>{items.name} <i>/</i> </span> : <span key={index}>{items.name}</span>
-                            })}
-                            </h4>
-                          </dd>
-                          <span className='spansy'>{(item.interval / 60) >10 ? (item.interval / 60) : '0' + parseInt(item.interval / 60)} : {(item.interval % 60) > 10 ? (item.interval % 60) : '0' + (item.interval % 60)}</span>
-                        </dl>
-                    }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
-                  } 
-                  </div></div>
-                        <div className="swiper-slide"><div className = 'boxete'>
-                  {
-                    listfour.length > 0 ? listfour.slice(0,9).map((item,index)=>{
-                      return  <dl key={index} className="Tatgbust" mid = {item.id}>
-                          <dt><img className="coverimg" src={`https://y.gtimg.cn/music/photo_new/T002R90x90M000${item.album.mid}.jpg?max_age=2592000`} alt=""/><div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></dt>
-                          <dd>
-                            <p title={item.subtitle || item.title}>{item.subtitle || item.title}</p>
-                            <h4 className='h4but'>
-                              {item.singer.map((items,indexs)=>{
-                                return item.singer.length > 1 ? <span id='hct' key={indexs}>{items.name} <i>/</i> </span> : <span key={index}>{items.name}</span>
-                            })}
-                            </h4>
-                          </dd>
-                          <span className='spansy'>{(item.interval / 60) >10 ? (item.interval / 60) : '0' + parseInt(item.interval / 60)} : {(item.interval % 60) > 10 ? (item.interval % 60) : '0' + (item.interval % 60)}</span>
-                        </dl>
-                    }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
-                  } 
-                  </div>
-                  </div>
+                    {boxNewslist}
                     </div>
                     <div className="swiper-button-prev swiper-button-black" id='iconfont'></div>
                     <div className="swiper-button-next swiper-button-black" id='iconaont'></div>

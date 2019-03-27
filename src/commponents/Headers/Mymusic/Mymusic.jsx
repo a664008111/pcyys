@@ -66,6 +66,7 @@ class Mymusic extends Component {
                                 {icons ? <i onClick={()=>{this.icons()}} className='icon iconfont icon-musicfill'></i> : <i onClick={()=>{this.icons()}} className='icon iconfont icon-musicforbidfill'></i>}
                             </div>
                      </div>
+                     <div className='mymubottom'>暂时不开发！！！</div>
               </div> : <div className='denglu'>
                   <div>
                       <h1>私人音乐空间,听我想听的歌</h1>
@@ -74,7 +75,7 @@ class Mymusic extends Component {
                   </div>
               </div>
                 }
-                <div className='mymubottom'>暂时不开发！！！</div>
+               
               <div>
               <Logings/>
               </div>

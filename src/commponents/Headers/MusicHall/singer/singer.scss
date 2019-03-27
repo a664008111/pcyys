@@ -159,6 +159,11 @@
                 overflow: hidden;
                 text-overflow:ellipsis;
                 white-space: nowrap;
+                a{
+                    &:hover{
+                        color:#31c27c !important;
+                    }
+                }
                 &:hover{
                     color:#31c27c;
                 }

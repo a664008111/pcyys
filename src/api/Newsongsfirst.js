@@ -9,7 +9,7 @@ export function getCarousels(datas) {
         hostUin: 0,
         platform: 'yqq.json',
         needNewCode: 0,
-        data: datas
+        data: `{"comm":{"ct":24},"new_song":{"module":"QQMusic.MusichallServer","method":"GetNewSong","param":{"type":${datas}}}}`
 	});
 	return jsonp(URL.carousel, data);
 }

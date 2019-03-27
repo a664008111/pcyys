@@ -31,23 +31,7 @@ class Newdiscdebut extends Component {
           prevEl: '.swiper-button-prev',
         }
       }); 
-      if(index===0){
-        let data = `{"comm":{"ct":24},"new_album":{"module":"music.web_album_library","method":"get_album_by_tags","param":{"area":1,"company":-1,"genre":-1,"type":-1,"year":-1,"sort":2,"get_tags":1,"sin":0,"num":40,"click_albumid":0}}}`
-        this.getbox(data)
-      }else if(index === 1){
-        let data = `{"comm":{"ct":24},"new_album":{"module":"music.web_album_library","method":"get_album_by_tags","param":{"area":0,"company":-1,"genre":-1,"type":-1,"year":-1,"sort":2,"get_tags":1,"sin":0,"num":40,"click_albumid":0}}}`
-        this.getbox(data)
-      }else if(index === 2){
-        let data = `{"comm":{"ct":24},"new_album":{"module":"music.web_album_library","method":"get_album_by_tags","param":{"area":3,"company":-1,"genre":-1,"type":-1,"year":-1,"sort":2,"get_tags":1,"sin":0,"num":40,"click_albumid":0}}}`
-        this.getbox(data)
-      }else if(index === 3){
-        let data = `{"comm":{"ct":24},"new_album":{"module":"music.web_album_library","method":"get_album_by_tags","param":{"area":15,"company":-1,"genre":-1,"type":-1,"year":-1,"sort":2,"get_tags":1,"sin":0,"num":40,"click_albumid":0}}}`
-        this.getbox(data)
-      }else if(index === 4){
-        let data = `{"comm":{"ct":24},"new_album":{"module":"music.web_album_library","method":"get_album_by_tags","param":{"area":14,"company":-1,"genre":-1,"type":-1,"year":-1,"sort":2,"get_tags":1,"sin":0,"num":40,"click_albumid":0}}}`
-        this.getbox(data)
-      }
-      
+      if(index===0){this.getbox(1)}else if(index === 1){this.getbox(0)}else if(index === 2){this.getbox(3)}else if(index === 3){this.getbox(15)}else if(index === 4){this.getbox(14)}
       this.setState({
         count:index
       })
@@ -70,6 +54,30 @@ class Newdiscdebut extends Component {
     }
   render() {
     let {listnoe,listtow,listtrr,listfour} = this.state;
+    let Newdlist = [];
+    Newdlist.push(listnoe,listtow,listtrr,listfour)
+    let addsNewdlist = Newdlist.map((itemx,indexx)=>{
+      return <div key={indexx} className="swiper-slide">
+      <div className = 'boxetec'>
+          {
+              itemx.length > 0 ? itemx.map((item,index)=>{
+                return  <dl key={index} className="Tatgbust" mid = {item.id}>
+                    <dt><img className="coverimg" src={`https://y.gtimg.cn/music/photo_new/T002R300x300M000${item.album_mid}.jpg?max_age=2592000`} alt=""/><div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></dt>
+                    <dd>
+                      <p title={item.album_name}>{item.album_name}</p>
+                      <h4 className='h4but'>
+                        {item.singers.map((items,indexs)=>{
+                          return item.singers.length > 1 ? <span id='hct' key={indexs}>{items.singer_name} <i>/</i> </span> : <span key={index}>{items.singer_name}</span>
+                      })}
+                      </h4>
+                      
+                    </dd>
+                  </dl>
+              }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
+            } 
+    </div>
+</div>
+    })
     return (
       <div className="Newdiscdebut">
             <h1>新碟首发</h1>
@@ -87,86 +95,7 @@ class Newdiscdebut extends Component {
                 <div className="swiper-container">
                 <div className="swiper-pagination"></div>
                     <div className="swiper-wrapper">
-                        <div className="swiper-slide">
-                            <div className = 'boxetec'>
-                                {
-                                    listnoe.length > 0 ? listnoe.map((item,index)=>{
-                                      return  <dl key={index} className="Tatgbust" mid = {item.id}>
-                                          <dt><img className="coverimg" src={`https://y.gtimg.cn/music/photo_new/T002R300x300M000${item.album_mid}.jpg?max_age=2592000`} alt=""/><div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></dt>
-                                          <dd>
-                                            <p title={item.album_name}>{item.album_name}</p>
-                                            <h4 className='h4but'>
-                                              {item.singers.map((items,indexs)=>{
-                                                return item.singers.length > 1 ? <span id='hct' key={indexs}>{items.singer_name} <i>/</i> </span> : <span key={index}>{items.singer_name}</span>
-                                            })}
-                                            </h4>
-                                            
-                                          </dd>
-                                        </dl>
-                                    }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
-                                  } 
-                          </div>
-                      </div>
-                      <div className="swiper-slide">
-                          <div className = 'boxetec'>
-                              {
-                                  listtow.length > 0 ? listtow.map((item,index)=>{
-                                    return  <dl key={index} className="Tatgbust" mid = {item.id}>
-                                        <dt><img className="coverimg" src={`https://y.gtimg.cn/music/photo_new/T002R300x300M000${item.album_mid}.jpg?max_age=2592000`} alt=""/><div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></dt>
-                                        <dd>
-                                          <p title={item.album_name}>{item.album_name}</p>
-                                          <h4 className='h4but'>
-                                            {item.singers.map((items,indexs)=>{
-                                              return item.singers.length > 1 ? <span id='hct' key={indexs}>{items.singer_name} <i>/</i> </span> : <span key={index}>{items.singer_name}</span>
-                                          })}
-                                          </h4>
-                                          
-                                        </dd>
-                                      </dl>
-                                  }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
-                              } 
-                          </div>
-                      </div>
-                      <div className="swiper-slide">
-                          <div className = 'boxetec'>
-                              {
-                                  listtrr.length > 0 ? listtrr.map((item,index)=>{
-                                    return  <dl key={index} className="Tatgbust" mid = {item.id}>
-                                        <dt><img className="coverimg" src={`https://y.gtimg.cn/music/photo_new/T002R300x300M000${item.album_mid}.jpg?max_age=2592000`} alt=""/><div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></dt>
-                                        <dd>
-                                          <p title={item.album_name}>{item.album_name}</p>
-                                          <h4 className='h4but'>
-                                            {item.singers.map((items,indexs)=>{
-                                              return item.singers.length > 1 ? <span id='hct' key={indexs}>{items.singer_name} <i>/</i> </span> : <span key={index}>{items.singer_name}</span>
-                                          })}
-                                          </h4>
-                                          
-                                        </dd>
-                                      </dl>
-                                  }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
-                              } 
-                          </div>
-                      </div>
-                      <div className="swiper-slide">
-                          <div className = 'boxetec'>
-                              {
-                                  listfour.length > 0 ? listfour.map((item,index)=>{
-                                    return  <dl key={index} className="Tatgbust" mid = {item.id}>
-                                        <dt><img className="coverimg" src={`https://y.gtimg.cn/music/photo_new/T002R300x300M000${item.album_mid}.jpg?max_age=2592000`} alt=""/><div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></dt>
-                                        <dd>
-                                          <p title={item.album_name}>{item.album_name}</p>
-                                          <h4 className='h4but'>
-                                            {item.singers.map((items,indexs)=>{
-                                              return item.singers.length > 1 ? <span id='hct' key={indexs}>{items.singer_name} <i>/</i> </span> : <span key={index}>{items.singer_name}</span>
-                                          })}
-                                          </h4>
-                                          
-                                        </dd>
-                                      </dl>
-                                  }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
-                              } 
-                          </div>
-                      </div>
+                    {addsNewdlist}
                     </div>
                     <div className="swiper-button-prev swiper-button-black" id='iconfont'></div>
                     <div className="swiper-button-next swiper-button-black" id='iconaont'></div>

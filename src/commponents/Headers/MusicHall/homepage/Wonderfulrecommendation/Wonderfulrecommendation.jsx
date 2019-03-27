@@ -38,6 +38,15 @@ class Wonderfulrecommendation extends Component {
     }
   render() {
     let {listnoe,listtow} = this.state;
+    let Wondelist = [];
+    Wondelist.push(listnoe,listtow);
+    let addsWondelist = Wondelist.map((items,indexs)=>{
+      return <div key={indexs} className="swiper-slide odds">{
+        items.length > 0 ? items.map((item,index)=>{
+          return <img key= {index} src={item.pic_info.url} alt=""/>
+        }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
+      } </div>
+    })
     return (
       <div className="Wonderfulrecommendation">
             <h1>精彩推荐</h1>
@@ -47,16 +56,7 @@ class Wonderfulrecommendation extends Component {
                 <div className="qqslidea">
                 <div className="swiper-container">
               <div className="swiper-wrapper">
-                  <div className="swiper-slide odds">{
-                    listnoe.length > 0 ? listnoe.map((item,index)=>{
-                      return <img key= {index} src={item.pic_info.url} alt=""/>
-                    }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
-                  } </div>
-                  <div className="swiper-slide odds">{
-                    listtow.length > 0 ? listtow.map((item,index)=>{
-                      return <img key= {index} src={item.pic_info.url} alt=""/>
-                    }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
-                  } </div>
+              {addsWondelist}
               </div>
               <div className="swiper-button-prev swiper-button-black" id='iconfont'></div>
               <div className="swiper-button-next swiper-button-black" id='iconaont'></div>

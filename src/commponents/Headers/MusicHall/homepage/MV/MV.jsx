@@ -62,6 +62,29 @@ class MV extends Component {
     }
   render() {
     let {listnoe,listtow,listtrr,listfour} = this.state;
+    let boxlist = [];
+    boxlist.push(listnoe,listtow,listtrr,listfour);
+    let addsMv=boxlist.map((items,indexs)=>{
+        return <div key={indexs} className="swiper-slide">
+        <div className = 'boxetell'>
+        {
+            items.length > 0 ? items.map((item,index)=>{
+              return  <dl key={index} className="Tatgbust" mid = {item.id}>
+                  <dt><img className="coverimg" src={item.picurl} alt=""/><div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></dt>
+                  <dd>
+                    <p title={item.mvtitle}>{item.mvtitle}</p>
+                    <b>{item.singer_name}</b>
+                    <h4 className='h4but'>
+                        <i className='icon iconfont icon-record'></i><span>{item.listennum > 10000 ? ((item.listennum / 10000).toFixed(1)) + '万' : item.listennum}</span>
+                    </h4>
+                    
+                  </dd>
+                </dl>
+            }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
+          } 
+        </div>
+    </div>
+    })
     return (
       <div className="MV">
             <h1>MV</h1>
@@ -72,7 +95,6 @@ class MV extends Component {
                 })
               }
             </ul>
-            
             <div className="swiperboxsll">
             <ol>
               <li>
@@ -80,83 +102,7 @@ class MV extends Component {
                 <div className="swiper-container">
                 <div className="swiper-pagination"></div>
                     <div className="swiper-wrapper">
-                        <div className="swiper-slide">
-                            <div className = 'boxetell'>
-                                {
-                                    listnoe.length > 0 ? listnoe.map((item,index)=>{
-                                      console.log(item)
-                                      return  <dl key={index} className="Tatgbust" mid = {item.id}>
-                                          <dt><Router><NavLink to={`/MusicHall/MVbox/${item.singer_mid}`}><img className="coverimg" src={item.picurl ? item.picurl : logins} alt=""/><div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></NavLink></Router></dt>
-                                          <dd>
-                                            <p title={item.mvtitle}>{item.mvtitle}</p>
-                                            <b>{item.singer_name}</b>
-                                            <h4 className='h4but'>
-                                               <i className='icon iconfont icon-record'></i><span>{item.listennum > 10000 ? ((item.listennum / 10000).toFixed(1)) + '万' : item.listennum}</span>
-                                            </h4>
-                                            
-                                          </dd>
-                                        </dl>
-                                    }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
-                                  } 
-                          </div>
-                      </div>
-                      <div className="swiper-slide">
-                          <div className = 'boxetell'>
-                          {
-                                    listtow.length > 0 ? listtow.map((item,index)=>{
-                                      return  <dl key={index} className="Tatgbust" mid = {item.id}>
-                                          <dt><img className="coverimg" src={item.picurl} alt=""/><div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></dt>
-                                          <dd>
-                                            <p title={item.mvtitle}>{item.mvtitle}</p>
-                                            <b>{item.singer_name}</b>
-                                            <h4 className='h4but'>
-                                               <i className='icon iconfont icon-record'></i><span>{item.listennum > 10000 ? ((item.listennum / 10000).toFixed(1)) + '万' : item.listennum}</span>
-                                            </h4>
-                                            
-                                          </dd>
-                                        </dl>
-                                    }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
-                                  } 
-                          </div>
-                      </div>
-                      <div className="swiper-slide">
-                          <div className = 'boxetell'>
-                          {
-                                    listtrr.length > 0 ? listtrr.map((item,index)=>{
-                                      return  <dl key={index} className="Tatgbust" mid = {item.id}>
-                                          <dt><img className="coverimg" src={item.picurl} alt=""/><div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></dt>
-                                          <dd>
-                                            <p title={item.mvtitle}>{item.mvtitle}</p>
-                                            <b>{item.singer_name}</b>
-                                            <h4 className='h4but'>
-                                               <i className='icon iconfont icon-record'></i><span>{item.listennum > 10000 ? ((item.listennum / 10000).toFixed(1)) + '万' : item.listennum}</span>
-                                            </h4>
-                                            
-                                          </dd>
-                                        </dl>
-                                    }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
-                                  } 
-                          </div>
-                      </div>
-                      <div className="swiper-slide">
-                          <div className = 'boxetell'>
-                          {
-                                    listfour.length > 0 ? listfour.map((item,index)=>{
-                                      return  <dl key={index} className="Tatgbust" mid = {item.id}>
-                                          <dt><img className="coverimg" src={item.picurl} alt=""/><div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></dt>
-                                          <dd>
-                                            <p title={item.mvtitle}>{item.mvtitle}</p>
-                                            <b>{item.singer_name}</b>
-                                            <h4 className='h4but'>
-                                               <i className='icon iconfont icon-record'></i><span>{item.listennum > 10000 ? ((item.listennum / 10000).toFixed(1)) + '万' : item.listennum}</span>
-                                            </h4>
-                                            
-                                          </dd>
-                                        </dl>
-                                    }) : <div style={{width:'100%',height:'281px'}}><img src={shuju} alt="" style={{marginTop: '10%',marginLeft: '50%',transform: 'translate3d(-50%,-50%,0)'}}/><h3 style={{position: 'absolute',bottom: '100px',left: '50%',transform: 'translateX(-50%)'}}>哦呦,数据走丢了！！！</h3></div>
-                                  } 
-                          </div>
-                      </div>
+                    {addsMv}
                     </div>
                     <div className="swiper-button-prev swiper-button-black" id='iconfont'></div>
                     <div className="swiper-button-next swiper-button-black" id='iconaont'></div>

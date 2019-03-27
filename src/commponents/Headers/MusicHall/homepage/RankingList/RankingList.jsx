@@ -49,13 +49,10 @@ class RankingList extends Component {
                                 </div>
                              })
                            }
-                           
                          </h4>
                     </li>
                 })  
-                
               }
-              
             </ol>
             </div>
       </div>
