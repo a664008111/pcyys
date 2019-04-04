@@ -148,7 +148,7 @@ class Album extends Component {
                           this.state.blocks ? <p>
                           {
                               tags.company && tags.company.map((item,index)=>{
-                                  return <li key={index} className={contextse === index ? 'active' : 'abcs'} onClick={()=>{this.companysbox(item.id,index,item.name)}}>{area === item.area || item.area === -1 ? item.name : null}</li>
+                                  return area === item.area || item.area === -1 ? <li key={index} className={contextse === index ? 'active' : 'abcs'} onClick={()=>{this.companysbox(item.id,index,item.name)}}>{item.name}</li> : null
                               })
                           }
                           </p> : ''

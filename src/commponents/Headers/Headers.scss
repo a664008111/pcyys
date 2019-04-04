@@ -49,8 +49,20 @@ a{
         background-color: #fff;
         padding: 0 33px 0 11px;
         display: flex;
-        &:hover i {
-            color:#31c27c;
+        z-index: 999;
+        &:hover{
+            .head-sou{
+                display: block;
+                transform: scale(1);
+                transition: all 0.8s;
+            }
+        }
+        i {
+            cursor: pointer;
+            &:hover {
+                color:#31c27c;
+            }
+            
         }
         input{
             width: 178px;
@@ -311,4 +323,99 @@ a{
         cursor: pointer;
     }
     
+}
+.head-sou{
+    width: 220px;
+    display: none;
+    position: absolute;
+    transform: scale(0);
+    transition: all 0.8s;
+    top:34px;
+    right:-1px;
+    background: #fff;
+    border:1px solid #c9c9c9;
+    ul{
+        li{
+            border-bottom: 1px solid #ccc;
+            &:last-child{
+                border-bottom: none;
+            }
+            p{
+                height: 40px;
+                line-height: 40px;
+                margin: 0;
+                color:#000;
+                font-weight: 600;
+                width: 100%;
+                span{
+                    color:#000;
+                    font-weight: 600;
+                    margin:10px 14px; 
+                }
+            }
+            ol{
+                h4{
+                    margin: 0;
+                    padding: 0 20px 0 38px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    cursor: pointer;
+                    span{
+                        color:#000;
+                    }
+                    b{
+                        color:#999;
+                        font-size: 14px;
+                        font-weight: 400;
+                    }
+                    &:hover{
+                        span,b{
+                            color:#fff;
+                        }
+                        background: #31c27c;
+                        color:#fff;
+                    }
+                }
+            }
+        }
+    }
+}
+.head-soubox{
+    width: 100%;
+    .sou{
+        padding: 0 10px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        b{
+            font-weight: 400;
+            cursor: pointer;
+            &:hover{
+                color: #31c27c;
+            }
+        }
+    }
+    .headsou-s{
+        color:#000;
+        p{
+            
+            padding: 0 10px;
+            display: flex;
+            justify-content: space-between;
+            em{
+                &:hover{
+                    color:red;
+                }
+            }
+            span{
+                cursor: pointer;
+            }
+            &:hover{
+                background: #31c27c;
+                color:#fff;
+            }
+        }
+    }
 }

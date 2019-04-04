@@ -4,6 +4,7 @@ import Logings from '../../logings.jsx';
 import {getCarousels,Sousuios,Clousebox} from '../../../../api/singer';
 import { HashRouter as Router, NavLink } from 'react-router-dom';
 import { Pagination } from 'antd';
+import images from '../../../../common/images/bg_detail.jpg';
 import logins from '../../../../common/images/loadings.gif'
 import './singer.scss';
 class singer extends Component {
@@ -56,9 +57,9 @@ class singer extends Component {
     });
   }
   textbox(i){
-    let is = i * 80
-    let data = `{"comm":{"ct":24,"cv":0},"singerList":{"module":"Music.SingerListServer","method":"get_singer_list","param":{"area":${this.state.singerbid},"sex":${this.state.singercid},"genre":${this.state.singerdid},"index":${this.state.singeraid},"sin":${is},"cur_page":${this.state.pages}}}}`
-    Clousebox(data).then(res=>{
+    let is = i * 80;
+    let {singerbid,singercid,singerdid,singeraid,pages} = this.state;
+    Clousebox(singerbid,singercid,singerdid,singeraid,is,pages).then(res=>{
       this.setState({
         singerlist:res.singerList.data.singerlist,
         total:res.singerList.data.total / 8,
@@ -163,8 +164,9 @@ class singer extends Component {
                   return <li key={index}>
                   <NavLink to={`/MusicHall/Gshou/${item.singer_mid}`}>
                     <dl>
-                      <dt><img src={`//y.gtimg.cn/music/photo_new/T001R150x150M000${item.singer_mid}.jpg?max_age=2592000`} alt=""/></dt>
+                      <dt>{singerlist.length > 0 ? <img  src={`//y.gtimg.cn/music/photo_new/T001R150x150M000${item.singer_mid}.jpg?max_age=2592000`} alt=""/> : <img src={images} alt=""/> }</dt>
                       <dd alt={item.singer_name}>{item.singer_name}</dd>
+                       {/* onError={(e) => {e.target.onerror = null;e.target.src=images;console.log(e.target.src)}} */}
                     </dl>
                     </NavLink>
                   </li>

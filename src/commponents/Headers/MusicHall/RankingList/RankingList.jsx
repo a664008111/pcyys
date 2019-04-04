@@ -23,19 +23,16 @@ class RankingList extends Component {
    }
    lefttops(id,key,name){
      pai(id,key).then(res=>{
-        console.log(res)
         this.setState({bantext:res,usernames:name})
      })
    }
    leftbots(id,key,name){
     pais(id,key).then(res=>{
-       console.log(res)
        this.setState({bantext:res,usernames:name})
     })
   }
   render() {
     let {listnoe,listTow,usernames,bantext} = this.state;
-    console.log(listnoe)
     if(listnoe.list&&listnoe.list.length > 0){
       return (
         <div className="RankingLists">

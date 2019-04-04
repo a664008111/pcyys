@@ -17,7 +17,10 @@ class Digitalalbum extends Component {
         Digitalalbumboxd:[],
         Digitalalbumboxe:[],
         Digitalalbumboxf:[],
-        Digitalalbumboxg:[]
+        Digitalalbumboxg:[],
+        arrival:'最新上架',
+        Hotsale:'本周热销',
+        Musician:'音乐人专区'
      }
   }
   componentDidMount(){
@@ -62,8 +65,29 @@ class Digitalalbum extends Component {
       mySwiper.slideTo(2, 1000, false)
   }
   render() {
-    let {Digitalalbumlunbo, Digitalalbumbox,Digitalalbumboxa,Digitalalbumboxb,Digitalalbumboxc,Digitalalbumboxd,Digitalalbumboxe,Digitalalbumboxf,Digitalalbumboxg} = this.state;
-      return (
+    let {arrival,Hotsale,Musician,Digitalalbumlunbo, Digitalalbumbox,Digitalalbumboxa,Digitalalbumboxb,Digitalalbumboxc,Digitalalbumboxd,Digitalalbumboxe,Digitalalbumboxf,Digitalalbumboxg} = this.state;
+    let Digilist = [];
+    Digilist.push(Digitalalbumbox,Digitalalbumboxa,Digitalalbumboxb,Digitalalbumboxc,Digitalalbumboxd,Digitalalbumboxe,Digitalalbumboxf,Digitalalbumboxg)
+    let addsDigilist = Digilist.map((itemx,indexx)=>{
+       return <div key={indexx} className='Digicontent'>
+       <h1>{indexx === 0 ? arrival : indexx === 1 ? Hotsale : indexx === 2 ? Musician : itemx.title}</h1>
+       <div className = 'Digicontentbox'>
+         {
+           itemx.albumlist && itemx.albumlist.slice(0,5).map((item,index)=>{
+               return <dl key={index}>
+                     <dt><a href={item.buypage}><img  src={`//y.gtimg.cn/music/photo_new/T002R300x300M000${item.album_mid}.jpg?max_age=2592000`} alt=""/><div className='coverimg'></div></a></dt>
+                     <dd>
+                       <h3><a href={item.buypage}>{item.album_name}</a></h3>
+                       <NavLink to={`/MusicHall/Gshou/${item.singer_mid}`}><h4>{item.singer_name}</h4></NavLink>
+                       <p><em> ￥ {item.dis_price / 100}</em> <i>立即购买</i> </p>
+                     </dd>
+               </dl>
+           })
+         }
+         </div>
+   </div>
+    })
+    return (
         <Router>
         <div className="Digitalalbum">
             <div className="Digilunbo">
@@ -81,143 +105,7 @@ class Digitalalbum extends Component {
                     <div className="swiper-button-next swiper-button-black" id='iconaont'></div>
                 </div>
             </div>
-            <div className='Digicontent'>
-                <h1>最新上架</h1>
-                <div className = 'Digicontentbox'>
-                  {
-                    Digitalalbumbox.albumlist && Digitalalbumbox.albumlist.slice(0,5).map((item,index)=>{
-                        return <dl key={index}>
-                              <dt><a href={item.buypage}><img  src={`//y.gtimg.cn/music/photo_new/T002R300x300M000${item.album_mid}.jpg?max_age=2592000`} alt=""/><div className='coverimg'></div></a></dt>
-                              <dd>
-                                <h3><a href={item.buypage}>{item.album_name}</a></h3>
-                                <NavLink to={`/MusicHall/Gshou/${item.singer_mid}`}><h4>{item.singer_name}</h4></NavLink>
-                                <p><em> ￥ {item.dis_price / 100}</em> <i>立即购买</i> </p>
-                              </dd>
-                        </dl>
-                    })
-                  }
-                  </div>
-            </div>
-            <div className='Digicontent'>
-                <h1>本周热销</h1>
-                <div className = 'Digicontentbox'>
-                  {
-                    Digitalalbumboxa.albumlist && Digitalalbumboxa.albumlist.slice(0,5).map((item,index)=>{
-                        return <dl key={index}>
-                              <dt><a href={item.buypage}><img  src={`//y.gtimg.cn/music/photo_new/T002R300x300M000${item.album_mid}.jpg?max_age=2592000`} alt=""/><div className='coverimg'></div></a></dt>
-                              <dd>
-                                <h3><a href={item.buypage}>{item.album_name}</a></h3>
-                                <NavLink to={`/MusicHall/Gshou/${item.singer_mid}`}><h4>{item.singer_name}</h4></NavLink>
-                                <p><em> ￥ {item.dis_price / 100}</em> <i>立即购买</i> </p>
-                              </dd>
-                        </dl>
-                    })
-                  }
-                  </div>
-            </div>
-            <div className='Digicontent'>
-                <h1>音乐人专区</h1>
-                <div className = 'Digicontentbox'>
-                  {
-                    Digitalalbumboxb.albumlist && Digitalalbumboxb.albumlist.slice(0,5).map((item,index)=>{
-                        return <dl key={index}>
-                              <dt><a href={item.buypage}><img  src={`//y.gtimg.cn/music/photo_new/T002R300x300M000${item.album_mid}.jpg?max_age=2592000`} alt=""/><div className='coverimg'></div></a></dt>
-                              <dd>
-                                <h3><a href={item.buypage}>{item.album_name}</a></h3>
-                                <NavLink to={`/MusicHall/Gshou/${item.singer_mid}`}><h4>{item.singer_name}</h4></NavLink>
-                                <p><em> ￥ {item.dis_price / 100}</em> <i>立即购买</i> </p>
-                              </dd>
-                        </dl>
-                    })
-                  }
-                  </div>
-            </div>
-            <div className='Digicontent'>
-                <h1>{Digitalalbumboxc.title}</h1>
-                <div className = 'Digicontentbox'>
-                  {
-                    Digitalalbumboxc.albumlist && Digitalalbumboxc.albumlist.slice(0,5).map((item,index)=>{
-                        return <dl key={index}>
-                              <dt><a href={item.buypage}><img  src={`//y.gtimg.cn/music/photo_new/T002R300x300M000${item.album_mid}.jpg?max_age=2592000`} alt=""/><div className='coverimg'></div></a></dt>
-                              <dd>
-                                <h3><a href={item.buypage}>{item.album_name}</a></h3>
-                                <NavLink to={`/MusicHall/Gshou/${item.singer_mid}`}><h4>{item.singer_name}</h4></NavLink>
-                                <p><em> ￥ {item.dis_price / 100}</em> <i>立即购买</i> </p>
-                              </dd>
-                        </dl>
-                    })
-                  }
-                  </div>
-            </div>
-            <div className='Digicontent'>
-                <h1>{Digitalalbumboxd.title}</h1>
-                <div className = 'Digicontentbox'>
-                  {
-                    Digitalalbumboxd.albumlist && Digitalalbumboxd.albumlist.slice(0,5).map((item,index)=>{
-                        return <dl key={index}>
-                              <dt><a href={item.buypage}><img  src={`//y.gtimg.cn/music/photo_new/T002R300x300M000${item.album_mid}.jpg?max_age=2592000`} alt=""/><div className='coverimg'></div></a></dt>
-                              <dd>
-                                <h3><a href={item.buypage}>{item.album_name}</a></h3>
-                                <NavLink to={`/MusicHall/Gshou/${item.singer_mid}`}><h4>{item.singer_name}</h4></NavLink>
-                                <p><em> ￥ {item.dis_price / 100}</em> <i>立即购买</i> </p>
-                              </dd>
-                        </dl>
-                    })
-                  }
-                  </div>
-            </div>
-            <div className='Digicontent'>
-                <h1>{Digitalalbumboxe.title}</h1>
-                <div className = 'Digicontentbox'>
-                  {
-                    Digitalalbumboxe.albumlist && Digitalalbumboxe.albumlist.slice(0,5).map((item,index)=>{
-                        return <dl key={index}>
-                              <dt><a href={item.buypage}><img  src={`//y.gtimg.cn/music/photo_new/T002R300x300M000${item.album_mid}.jpg?max_age=2592000`} alt=""/><div className='coverimg'></div></a></dt>
-                              <dd>
-                                <h3><a href={item.buypage}>{item.album_name}</a></h3>
-                                <NavLink to={`/MusicHall/Gshou/${item.singer_mid}`}><h4>{item.singer_name}</h4></NavLink>
-                                <p><em> ￥ {item.dis_price / 100}</em> <i>立即购买</i> </p>
-                              </dd>
-                        </dl>
-                    })
-                  }
-                  </div>
-            </div>
-            <div className='Digicontent'>
-                <h1>{Digitalalbumboxf.title}</h1>
-                <div className = 'Digicontentbox'>
-                  {
-                    Digitalalbumboxf.albumlist && Digitalalbumboxf.albumlist.slice(0,5).map((item,index)=>{
-                        return <dl key={index}>
-                              <dt><a href={item.buypage}><img  src={`//y.gtimg.cn/music/photo_new/T002R300x300M000${item.album_mid}.jpg?max_age=2592000`} alt=""/><div className='coverimg'></div></a></dt>
-                              <dd>
-                                <h3><a href={item.buypage}>{item.album_name}</a></h3>
-                                <NavLink to={`/MusicHall/Gshou/${item.singer_mid}`}><h4>{item.singer_name}</h4></NavLink>
-                                <p><em> ￥ {item.dis_price / 100}</em> <i>立即购买</i> </p>
-                              </dd>
-                        </dl>
-                    })
-                  }
-                  </div>
-            </div>
-            <div className='Digicontent'>
-                <h1>{Digitalalbumboxg.title}</h1>
-                <div className = 'Digicontentbox'>
-                  {
-                    Digitalalbumboxg.albumlist && Digitalalbumboxg.albumlist.slice(0,5).map((item,index)=>{
-                        return <dl key={index}>
-                              <dt><a href={item.buypage}><img  src={`//y.gtimg.cn/music/photo_new/T002R300x300M000${item.album_mid}.jpg?max_age=2592000`} alt=""/><div className='coverimg'></div></a></dt>
-                              <dd>
-                                <h3><a href={item.buypage}>{item.album_name}</a></h3>
-                                <NavLink to={`/MusicHall/Gshou/${item.singer_mid}`}><h4>{item.singer_name}</h4></NavLink>
-                                <p><em> ￥ {item.dis_price / 100}</em> <i>立即购买</i> </p>
-                              </dd>
-                        </dl>
-                    })
-                  }
-                  </div>
-            </div>
-            
+            {addsDigilist}
         </div></Router>
       );
   }

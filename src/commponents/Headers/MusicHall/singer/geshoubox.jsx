@@ -21,18 +21,6 @@ class geshoubox extends Component {
         }
     }
     componentDidMount(){
-        // let Gsid = {
-        //     a:this.props.match.params.a,
-        //     b:this.props.match.params.b,
-        //     c:this.props.match.params.c,
-        //     d:this.props.match.params.d,
-        //     ida:this.props.match.params.ida,
-        //     idb:this.props.match.params.idb,
-        //     idc:this.props.match.params.idc,
-        //     idd:this.props.match.params.idd,
-        // }
-        // var str = JSON.stringify(Gsid);
-        // sessionStorage.Gsid = str;
         let data = this.props.match.params.id
         getCarousels(data).then(res=>{
             // this.setState({

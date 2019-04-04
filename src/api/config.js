@@ -7,6 +7,7 @@ const URL = {
     geshoutext:'https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_singer_desc.fcg',//歌手信息
     MVxq:'https://c.y.qq.com/mv/fcgi-bin/fcg_singer_mv.fcg',//歌手MV详情
     /* 最新专辑 */
+    Headsou:'https://c.y.qq.com/splcloud/fcgi-bin/smartbox_new.fcg',//搜索
     Dltobus:'https://c.y.qq.com/rsc/fcgi-bin/fcg_get_profile_homepage.fcg',//用户信息
     Guanzhu:'https://c.y.qq.com/rsc/fcgi-bin/fcg_order_singer_getnum.fcg',//关注人数
     Xsgs:'https://c.y.qq.com/v8/fcg-bin/fcg_v8_simsinger.fcg',//相似歌手

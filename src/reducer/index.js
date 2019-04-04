@@ -9,6 +9,8 @@ const data={
         show:false,
         visible:false
     },
+}
+const YiDon = {
     
 }
 // const wode = (state,action) =>{

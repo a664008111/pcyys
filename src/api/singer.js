@@ -25,7 +25,7 @@ export function Sousuios() {
 	});
 	return jsonp(URL.carousel, data);
 }
-export function Clousebox(datas) {
+export function Clousebox(singerbid,singercid,singerdid,singeraid,is,pages) {
 	const data = Object.assign({}, PARAM, {
         '-': 'getUCGI' + new Date().getTime(),
         g_tk: 105602752,
@@ -33,7 +33,7 @@ export function Clousebox(datas) {
         hostUin: 0,
         platform: 'yqq.json',
         needNewCode: 0,
-        data: datas
+        data: `{"comm":{"ct":24,"cv":0},"singerList":{"module":"Music.SingerListServer","method":"get_singer_list","param":{"area":${singerbid},"sex":${singercid},"genre":${singerdid},"index":${singeraid},"sin":${is},"cur_page":${pages}}}}`
 	});
 	return jsonp(URL.carousel, data);
 }

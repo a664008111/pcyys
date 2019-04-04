@@ -71,6 +71,7 @@
   ],
   "devDependencies": {
     "antd": "^3.12.1",
+    "axios": "^0.18.0",
     "jsonp": "^0.2.1",
     "node-sass": "^4.11.0",
     "react-redux": "^6.0.0",

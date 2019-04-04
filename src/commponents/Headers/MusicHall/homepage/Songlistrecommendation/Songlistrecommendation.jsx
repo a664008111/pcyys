@@ -55,9 +55,9 @@ class Songlistrecommendation extends Component {
     }
     imgsone(item,index){
       message.success("正在开发中,请耐心等待... , invalid referer!");
-      // getNewAlbum(item.content_id||item.tid).then(res=>{
-
-      // })
+      getNewAlbum(item.content_id||item.tid).then(res=>{
+        console.log(res)
+      })
     }
     Right(){
       let rights=document.getElementsByClassName("qqslide")[0];
@@ -122,7 +122,7 @@ class Songlistrecommendation extends Component {
                   {
                     listnoe.length > 0 ? listnoe.map((item,index)=>{
                       return  <dl key={index} className="utf8s">
-                          <dt>{listnoe ?  <img className="coverimg" onerror="this.src='//y.gtimg.cn/mediastyle/global/img/playlist_300.png?max_age=31536000';this.onerror=null;" src={item.cover || item.cover_url_big ?item.cover || item.cover_url_big : loading} alt=""/> : <img className="coverimg" onerror="this.src='//y.gtimg.cn/mediastyle/global/img/playlist_300.png?max_age=31536000';this.onerror=null;" src={images} alt=""/>}<div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></dt>
+                          <dt>{listnoe ?  <img className="coverimg"  src={item.cover || item.cover_url_big ?item.cover || item.cover_url_big : loading} alt=""/> : <img className="coverimg" onerror="this.src='//y.gtimg.cn/mediastyle/global/img/playlist_300.png?max_age=31536000';this.onerror=null;" src={images} alt=""/>}<div className='coverimg' ><div  className='coverimgs' onClick={()=>{this.imgsone(item,index)}} style={{backgroundImage: 'url(' + cover + ')'}}></div> </div></dt>
                           <dd>
                             <p >{item.title}</p>
                             <span>播放量：{item.listen_num > 10000 || item.access_num > 10000 ? ((item.listen_num / 10000 || item.access_num / 10000).toFixed(1)) + '万' : item.listen_num || item.access_num}</span>

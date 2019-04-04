@@ -10,8 +10,9 @@ import { HashRouter as Router, NavLink } from 'react-router-dom';
 import "../../common/react-iconfont/iconfont.css";
 import Logings from './logings.jsx';
 import {connect} from 'react-redux';
+import {Headsou} from '../../api/Wonderfulrecommendation';
 import {
-    Menu, Dropdown, message
+    Menu, Dropdown, message, Icon 
   } from 'antd';
 import 'antd/dist/antd.css';
 class Headers extends Component {
@@ -21,15 +22,28 @@ class Headers extends Component {
             Links:[{"音乐馆":"/MusicHall"},{"我的音乐":"/Mymusic"},{"客户端":"/Client"},{"音乐号":"/Musicnumber"},{"VIP":"/VIP"}],
             userImg:'',
             userName:'',
-            users:{}
+            users:{},
+            album:[],
+            mv:[],
+            singer:[],
+            song:[],
+            values:'',
+            sou:[],
+            lishi:[]
         }
         this.zhanghao = this.zhanghao.bind(this);
         this.mima = this.mima.bind(this);
     }
     componentDidMount(){
         let str = sessionStorage.obj;
+        let sou = sessionStorage.sous;
+        if(sou){
+          let sous = JSON.parse(sou);
+          this.setState({
+              lishi:Array.from(new Set(sous))
+          })
+        }
         let textname = sessionStorage.textname
-        
               if(str){
                 let users = JSON.parse(textname);
                   let obj = JSON.parse(str);
@@ -56,10 +70,69 @@ class Headers extends Component {
     mima(e){
          this.setState({password:e.target.value})
    }
+   isoust(){
+     console.log(this)
+     if(this.state.values === ''){
+      message.warning("请输入搜索内容");
+      return;
+     }else{
+      let {sou}=this.state;
+      sou.push(this.state.values.replace(/(^\s*)|(\s*$)/g, ""))
+      let addsou = Array.from(new Set(sou))
+      this.setState({sou:addsou},()=>{
+         var sous = JSON.stringify(sou);
+         sessionStorage.sous = sous;
+      })
+     }
+   }
+
+   souquan(){
+    let {sou} = this.state;
+    sou.splice(0,sou.length);
+    this.setState({sou})
+   }
+   rovme(index){
+     let {sou} = this.state;
+     sou.splice(index,1);
+     this.setState({sou})
+   }
+   indexvalue(item){
+      this.setState({values:item},()=>{
+        Headsou(item).then(res=>{
+          if(res.code === -2){
+            return;
+          }else{
+           this.setState({
+             album:res.data.album.itemlist,
+             mv:res.data.mv.itemlist,
+             singer:res.data.singer.itemlist,
+             song:res.data.song.itemlist
+            })
+          }
+        })
+      })
+   }
+   onsou(e){
+     this.setState({
+      values:e.target.value
+     })
+     Headsou(e.target.value).then(res=>{
+       if(res.code === -2){
+         return;
+       }else{
+        this.setState({
+          album:res.data.album.itemlist,
+          mv:res.data.mv.itemlist,
+          singer:res.data.singer.itemlist,
+          song:res.data.song.itemlist
+         })
+       }
+       
+     })
+   }
   render() {
     let login=this.props.login
-    let {users} = this.state;
-    console.log(users)
+    let {users,album,mv,singer,song,values,lishi} = this.state;
     const menu = (
         <div className='menu'>
         <Menu>
@@ -117,10 +190,76 @@ class Headers extends Component {
           </div> 
           </Router>
           <div className="head-input">
-              <input placeholder="搜索音乐、MV、歌单、用户" type="text" name="" id=""/><i className="icon iconfont icon-search_light"></i>
+          <input onChange={(e)=>{this.onsou(e)}} value={this.state.values} placeholder="搜索音乐、MV、歌单、用户" type="text" name="" id=""/><i onClick={()=>{this.isoust()}} className="icon iconfont icon-search_light"></i>
+          <div className="head-sou">
+          {
+            values ? <ul>
+              {
+                song.length > 0 ? <li>
+                <p><span className='icon iconfont icon-musicfill'></span>单曲</p>
+                <ol>
+                    {
+                      song.map((item,index)=>{
+                         return <h4 key={index}><span>{item.name}</span> - <b>{item.singer}</b> </h4>
+                      })
+                    }
+                </ol>
+             </li> : <li><p><span>暂无单曲</span></p></li>
+              }
+            {
+                singer.length > 0 ? <li>
+                <p><span className='icon iconfont icon-people'></span>歌手</p>
+                <ol>
+                   {
+                     singer.map((item,index)=>{
+                        return <h4 key={index}>{item.name}</h4>
+                     })
+                   }
+               </ol>
+            </li> : <li><p><span>暂无歌手</span></p></li>
+            }
+            {
+              album.length > 0 ? <li>
+              <p><span className='icon iconfont icon-tubiaozhizuomoban'></span>专辑</p>
+              <ol>
+                 {
+                   album.map((item,index)=>{
+                      return <h4 key={index}><span>{item.name}</span> - <b>{item.singer}</b> </h4>
+                   })
+                 }
+             </ol>
+          </li> : <li><p><span>暂无专辑</span></p></li>
+            }
+            {
+              mv.length > 0 ? <li>
+              <p><span className='icon iconfont icon-recordlight'></span>MV</p>
+              <ol>
+                 {
+                   mv.map((item,index)=>{
+                      return <h4 key={index}><span>{item.name}</span> - <b>{item.singer}</b> </h4>
+                   })
+                 }
+             </ol>
+          </li> : <li><p><span>暂无MV</span></p></li>
+            }
+            
+          </ul> : <div className="head-soubox">
+               <div className='sou'>
+                   <span>搜索历史</span> <b onClick={()=>{this.souquan()}} className='icon iconfont icon-delete'></b> 
+               </div>
+               <div className='headsou-s'>
+                   {
+                     this.state.sou.map((item,index)=>{
+                         return <p key={index}><span onClick={(e)=>{this.indexvalue(item)}}>{item}</span><em onClick={(e)=>{this.rovme(index)}} className='icon iconfont icon-close'></em></p>
+                     })
+                   }
+               </div>
+          </div>
+          }
+                
+          </div>
           </div>
           <div className="head-opt">
-          
               <p>
                 <Dropdown overlay={login.show ? menu : menus} placement='bottomLeft'>
                     {

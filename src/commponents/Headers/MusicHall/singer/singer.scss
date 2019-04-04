@@ -125,7 +125,19 @@
                         height: 150px;
                         border-radius: 50%;
                         overflow: hidden;
+                        position: relative;
                         cursor: pointer;
+                        img:after { 
+                            content: url('//y.gtimg.cn/mediastyle/global/img/singer_150.png?max_age=31536000');
+                            display: block;
+                            position: absolute;
+                            z-index: 2;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-color: #fff;
+                          }
                     }
                     dd{
                         text-align: center;
